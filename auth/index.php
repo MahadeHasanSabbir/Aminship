@@ -1,0 +1,11 @@
+<?php
+	session_start();
+	if(isset($_SESSION['id'])){
+		header("location:http://localhost/Aminship/profile/");
+		exit;
+	}
+	else{
+		header("location:http://localhost/Aminship/auth/log.php");
+		exit;
+	}
+?>
