@@ -11,13 +11,13 @@
 		$password = password_hash($_POST['password'], PASSWORD_BCRYPT);
 
 		//sql query
-		$sql = "UPDATE user SET name = '$name', password = '$password', mail = '$email', phone = '$number', WHERE user.ID = '$_SESSION[id]';";
+		$sql = "UPDATE user SET name = '$name', password = '$password', mail = '$email', phone = '$number' WHERE user.ID = '$_SESSION[id]';";
 		
 		//method to update data from database
 		mysqli_query($conect, $sql);
 		
 		//mehtod to redirect this page to another page
-		//header("location:http://localhost/Aminship/profile/");
+		header("location:http://localhost/Aminship/profile/about.php");
 		exit;
 	}
 	else{

@@ -5,115 +5,69 @@
 		$conect = mysqli_connect("localhost","root","","aminship");
 
 		//sql query to find user information from database
-		$sqlquery = "SELECT * FROM user WHERE ID = '$_SESSION[id]'";
+		$sqlquery = "SELECT name FROM user WHERE ID = '$_SESSION[id]'";
 
 		//take data from database
 		$data = mysqli_query($conect, $sqlquery);
 
 		//convert 2D array to 1D array
-		$row = mysqli_fetch_array($data);
+		$row = mysqli_fetch_assoc($data);
 ?>
 		<!DOCTYPE html>
 		<html>
 			<head>
 				<meta charset="UTF-8"/>
 				<meta name="viewport" content="width=device-width, initial-scale=1.0"/>
-				<title> <?php echo $row["name"];?>'s Profile | Aminship (working with your land) </title>
-				<link rel="stylesheet" type="text/css" href="http://localhost/Aminship/style/css/bootstrap.min.css" />
+				<title> Aminship (working with your land) </title>
+				<link rel="stylesheet" type="text/css" href="http://localhost/Aminship/style/css/bootstrap.min.css">
 				<style>
-					body {padding-top:30px;}
+					body {padding-top:60px;background-color:darkseagreen;}
 				</style>
 			</head>
 			<body>
-				<nav class="navbar navbar-default navbar-fixed-top">
-					<div class="container">
-						<div class="navbar-header">
-							<button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#navbar" aria-expanded="false" aria-controls="navbar">
-								<span class="sr-only">Toggle navigation</span>
-								<span class="icon-bar"></span>
-								<span class="icon-bar"></span>
-								<span class="icon-bar"></span>
-							</button>
-						<a class="navbar-brand" href="./">Aminship</a>
-						</div>
-						<div id="navbar" class="navbar-collapse collapse">
-							<ul class="nav navbar-nav">
-								<li class="active"><a href="./"> Home </a></li>
-								<li><a href="./about.php"> About </a></li>
-								<li class="dropdown">
-									<a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false"> Area <span class="caret"></span></a>
-										<ul class="dropdown-menu">
-											<li onclick="giveinfo()"><a href="./tarea.php">Area for triangle</a></li>
-											<li onclick="giveinfo()"><a href="./area.php">Area for rectengle</a></li>
-											<li onclick="giveinfo()"><a href="./sarea.php">Area for Circle</a></li>
-										</ul>
-								</li>
-								<li onclick="giveinfo()"><a href="./side.php"> Side </a></li>
-								<li onclick="giveinfo()"><a href="#"> Distribution </a></li>
-							</ul>
-							<ul class="nav navbar-nav navbar-right">
-								<li><a href="http://localhost/Aminship/auth/logout.php">Log out</a></li>
-							</ul>
-						</div><!--/.nav-collapse -->
+				<?php include 'header.php'; ?>
+				<div class="container-fluid" role="main">
+					<!--websiteinfo-->
+					<div class="jumbotron" style="margin-bottom:10px;">
+						<p> <strong> Welcome! <q> <?php echo $row['name'];?> </q> </strong> We are here to help you calculate your land area and distribute your land.
+						</p>
 					</div>
-				</nav>
-				<div class="container">
-					<div class="page-header">
-						<h4 style="display:inline-block;"> Your information </h4>
-						<button class="btn btn-md btn-default" onclick="return permit1()">
-							<a href='./profileupdate.php'> Edit profile </a>
-						</button>
-						<button class="btn btn-md btn-default" onclick="return permit2()">
-							<a href='./delete.php'> Delete ID </a>
-						</button>
-						<button class="btn btn-md btn-default">
-							<a href='./view.php'> Meserment history </a>
-						</button>
+					<!--measurement info-->
+					<div class="well" style="margin-bottom:10px;">
+						<blockquote class="bg-warning">
+							Before starting the masurement we want to clear one thing, we will help you to calculate the area or find out a porsion of a land depanding on your input. We can not help you to mesure the size of a side in your land, it will be done by you.
+						</blockquote>
+						<p class="text-justify" >
+							When it come about land there is no actual size of it. Land could have many axis and those are straight or curved. For the betterment of mesurement and error less area calculation we need to divide land into some geometric sheap. Land shape could be Triangle, Rectengle or upobritto. It is not being a problem by divide your land. Just calculate every divided shape individualy and sum them lastly for final result. We will help you to calculate the individual shape of land. Here is the process,
+						</p>
 					</div>
-					<div class="jumbotron">
-						<?php
-							echo "<label> User ID</label>: ", $row["ID"];
-							echo "<br/> <label> Name</label>: ", $row["name"];
-							echo "<br/> <label> Mobile</label>: ", $row["phone"];
-							echo "<br/> <label> E-mail</label>: ", $row["mail"];
-							echo "<br/> <label> Measure count</label>: ", $row["measure"];
-						?>
+					<div class="bg-info">
+						<ul class="list-group">
+							<li class="list-group-item">
+								<h4 class="list-group-item-heading"> Triangle shape land measurement process </h4>
+								<p class="list-group-item-text text-justify">
+									Simply take the lenght of the sides of your land and put it on the triangle shape area calculator page. When you take the length you must be consious about the perfect value and put feet and inch separately into the respective input box.
+								</p>
+							</li>
+							<li class="list-group-item">
+								<h4 class="list-group-item-heading"> Rectengle shape land measurement process </h4>
+								<p class="list-group-item-text text-justify">
+									Simply take the lenght of the sides of your land and put it on the rectengle shape area calculator page. When you take the length you must be consious about the perfect value and put feet and inch separately into the respective input box.
+								</p>
+							</li>
+							<li class="list-group-item">
+								<h4 class="list-group-item-heading"> Circle shape land measurement process </h4>
+								<p class="list-group-item-text text-justify">
+									Simply take the lenght of the long radious and short radious of your land then put it on the circle shape area calculator page. When you take the length you must be consious about the perfect value and put feet and inch separately into the respective input box.
+								</p>
+							</li>
+						</ul>
 					</div>
 				</div>
+				<div class="sitefooter"></div>
 				<script src="http://localhost/Aminship/style/js/jquery.min.js"></script>
 				<script src="http://localhost/Aminship/style/js/bootstrap.min.js"></script>
-				<script>
-					function giveinfo(){
-						if (sessionStorage.getItem("visited") === null) {
-							alert("Please read all the information of this page before doing any calculation!");
-							sessionStorage.setItem("visited", "true");
-						  }
-					}
-					function permit1(){
-						if(!confirm("Sure to edit your information?")){
-							return false;
-						}
-						else{
-							return true;
-						}
-					}
-					function permit2(){
-						if(!confirm("Sure to delete your information?")){
-							return false;
-						}
-						else{
-							return true;
-						}
-					}
-					function permit3(){
-						if(!confirm("Do you want to Log out?")){
-							return false;
-						}
-						else{
-							return true;
-						}
-					}
-				</script>
+				<script src="http://localhost/Aminship/style/js/jscript.js"></script>
 			</body>
 		</html>
 <?php

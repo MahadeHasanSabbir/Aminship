@@ -1,70 +1,95 @@
 <?php
 	session_start();
 	if(isset($_SESSION['id'])){
+		//create connection with database
+		$conect = mysqli_connect("localhost","root","","aminship");
+
+		//sql query to find user information from database
+		$sqlquery = "SELECT * FROM user WHERE ID = '$_SESSION[id]'";
+
+		//take data from database
+		$data = mysqli_query($conect, $sqlquery);
+
+		//convert 2D array to 1D array
+		$row = mysqli_fetch_assoc($data);
 ?>
 		<!DOCTYPE html>
 		<html>
 			<head>
 				<meta charset="UTF-8"/>
 				<meta name="viewport" content="width=device-width, initial-scale=1.0"/>
-				<title> Aminship (working with your land) </title>
-				<link rel="stylesheet" type="text/css" href="http://localhost/Aminship/style/css/bootstrap.min.css">
+				<title> <?php echo $row["name"];?>'s Profile | Aminship (working with your land) </title>
+				<link rel="stylesheet" type="text/css" href="http://localhost/Aminship/style/css/bootstrap.min.css" />
 				<style>
-					body {padding-top:60px;}
+					body {padding-top:30px;background-color:darkseagreen;}
+					.mb {margin-bottom:10px;}
 				</style>
 			</head>
 			<body>
-				<nav class="navbar navbar-default navbar-fixed-top">
-					<div class="container">
-						<div class="navbar-header">
-							<button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#navbar" aria-expanded="false" aria-controls="navbar">
-								<span class="sr-only">Toggle navigation</span>
-								<span class="icon-bar"></span>
-								<span class="icon-bar"></span>
-								<span class="icon-bar"></span>
-							</button>
-						<a class="navbar-brand" href="./">Aminship</a>
-						</div>
-						<div id="navbar" class="navbar-collapse collapse">
-							<ul class="nav navbar-nav">
-								<li><a href="./"> Home </a></li>
-								<li class="active"><a href="./about.php"> About </a></li>
-								<li class="dropdown">
-									<a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false"> Area <span class="caret"></span></a>
-										<ul class="dropdown-menu">
-											<li onclick="giveinfo()"><a href="./tarea.php">Area for triangle</a></li>
-											<li onclick="giveinfo()"><a href="./area.php">Area for rectengle</a></li>
-											<li onclick="giveinfo()"><a href="./sarea.php">Area for circle</a></li>
-										</ul>
-								</li>
-								<li onclick="giveinfo()"><a href="./side.php"> Side </a></li>
-								<li onclick="giveinfo()"><a href="#"> Distribution </a></li>
-							</ul>
-							<ul class="nav navbar-nav navbar-right">
-								<li>
-									<a href="http://localhost/Aminship/auth/logout.php"> Log out </a>
-								</li>
-							</ul>
+				<?php include 'header.php'; ?>
+				<div class="container-fluid">
+					<div class="page-header">
+						<h4 style="display:inline-block;" class="col-sm-9 col-xs-6"> Your information </h4>
+						<div class="btn-group">
+							<a href='./profileupdate.php' style="color:brown;" class="btn btn-md bg-warning" onclick="return permit1()"> Edit profile </a>
+							<a href='./delete.php' style="color:darkred;" class="btn btn-md bg-danger" onclick="return permit2()"> Delete ID </a>
+							<a href='./view.php' style="color:mediumblue;" class="btn btn-md bg-info"> Meserment history </a>
 						</div>
 					</div>
-				</nav>
-				<div class="container" role="main">
-					<div class="jumbotron">
-						<p> <strong> Welcome to land sarvay project.</strong> We are here to help you calculating your land area and distribute it as you want.
-						</p>
+					<div class="jumbotron" style="display:grid;">
+						<div class="col-sm-12 mb">
+							<b class="col-sm-3 col-xs-5"> User ID </b>
+							<span class="col-sm-9 col-xs-7"> : &nbsp <?php echo $row["ID"];?></span>
+						</div>
+						<div class="col-sm-12 mb">
+							<b class="col-sm-3 col-xs-5"> Name </b>
+							<span class="col-sm-9 col-xs-7"> : &nbsp <?php echo $row["name"]; ?></span>
+						</div>
+						<div class="col-sm-12 mb">
+							<b class="col-sm-3 col-xs-5"> Mobile </b>
+							<span class="col-sm-9 col-xs-7"> : &nbsp <?php echo $row["phone"]; ?></span>
+						</div>
+						<div class="col-sm-12 mb">
+							<b class="col-sm-3 col-xs-5"> E-mail </b>
+							<span class="col-sm-9 col-xs-7"> : &nbsp <?php echo $row["mail"]; ?></span>
+						</div>
+						<div class="col-sm-12 mb">
+							<b class="col-sm-3 col-xs-5"> Saved measurement </b>
+							<span class="col-sm-9 col-xs-7"> : &nbsp
+							<?php
+								$table = "user"."$_SESSION[id]";
+								$sql = "SELECT COUNT(UID) FROM $table";
+
+								$source = mysqli_query($conect, $sql);
+								$number = mysqli_fetch_array($source);
+											
+								echo round($number[0]); 
+							?>
+							</span>
+						</div>
+						<div class="col-sm-12 mb">
+							<b class='col-sm-3'> Total Measurement </b>
+							<span class='col-sm-9'> : &nbsp <?php echo round($row["measure"]); ?></span>
+						</div>
+						<div class="col-sm-12 mb">
+							<b class="col-sm-3 col-xs-5"> Last log-in </b>
+							<span class="col-sm-9 col-xs-7"> : &nbsp
+							<?php
+								if($row['lastlog'] == '0000-00-00'){
+									echo "N/A </span> </br>";
+								}
+								else{
+									$date = new DateTime();
+									$today = $date -> format('Y-m-j');
+									echo round((strtotime($today) - strtotime($row['lastlog']))/60/60/24), " day ago </span> </br>";
+								}
+							?>
+						</div>
 					</div>
 				</div>
-				<div class="sitefooter"></div>
-				<script src="./style/js/jquery.min.js"></script>
-				<script src="./style/js/bootstrap.min.js"></script>
-				<script>
-					function giveinfo(){
-						if (sessionStorage.getItem("visited") === null) {
-							alert("Please read all the information of this page before doing any calculation!");
-							sessionStorage.setItem("visited", "true");
-						  }
-					}
-				</script>
+				<script src="http://localhost/Aminship/style/js/jquery.min.js"></script>
+				<script src="http://localhost/Aminship/style/js/bootstrap.min.js"></script>
+				<script src="http://localhost/Aminship/style/js/jscript.js"></script>
 			</body>
 		</html>
 <?php

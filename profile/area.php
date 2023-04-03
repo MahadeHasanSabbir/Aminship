@@ -10,85 +10,54 @@
 				<title> Aminship (working with your land) </title>
 				<link rel="stylesheet" type="text/css" href="http://localhost/Aminship/style/css/bootstrap.min.css" />
 				<style>
-					body {padding-top:60px;}
+					body {padding-top:60px;background-color:darkseagreen;}
 				</style>
 			</head>
 			<body>
-				<nav class="navbar navbar-default navbar-fixed-top">
-					<div class="container">
-						<div class="navbar-header">
-							<button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#navbar" aria-expanded="false" aria-controls="navbar">
-								<span class="sr-only">Toggle navigation</span>
-								<span class="icon-bar"></span>
-								<span class="icon-bar"></span>
-								<span class="icon-bar"></span>
-							</button>
-						<a class="navbar-brand" href="./">Aminship</a>
-						</div>
-						<div id="navbar" class="navbar-collapse collapse">
-							<ul class="nav navbar-nav">
-								<li><a href="./"> Home </a></li>
-								<li><a href="./about.php"> About </a></li>
-								<li class="dropdown active">
-									<a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false"> Area <span class="caret"></span></a>
-										<ul class="dropdown-menu">
-											<li onclick="giveinfo()"><a href="./tarea.php">Area for triangle</a></li>
-											<li class="active" onclick="giveinfo()"><a href="./area.php">Area for rectengle</a></li>
-											<li onclick="giveinfo()"><a href="./sarea.php">Area for Circle</a></li>
-										</ul>
-								</li>
-								<li onclick="giveinfo()"><a href="./side.php"> Side </a></li>
-								<li onclick="giveinfo()"><a href="#"> Distribution </a></li>
-							</ul>
-							<ul class="nav navbar-nav navbar-right">
-								<li><a href="http://localhost/Aminship/auth/logout.php">Log out</a></li>
-							</ul>
-						</div><!--/.nav-collapse -->
-					</div>
-				</nav>
-				<div class="container">
+				<?php include 'header.php'; ?>
+				<div class="container-fluid">
 					<ul class="breadcrumb">
 						<li><a href="#">Area</a></li>
-						<li class="active"> Area for rectengle </li>
+						<li class="active"> Area for rectengle shape land </li>
 					</ul>
 					<div class="page-header"> <h4> Area Calculator for Rectengle shape land </h4> </div>
 					<div class="jumbotron">
-						<form class="form-horizontal" name="areacalculate" onsubmit="return calculate()" method="post">
+						<form action="calculate.php" class="form-horizontal" name="areacalculate" onsubmit="return result()" method="post">
 							<h4>East side:</h4>
 							<label class="control-label col-sm-1"> feet: </label>
 							<div class="col-sm-5">
-								<input type="number" min="0" name="east" class="form-control" id="e1">
+								<input type="number" min="0" name="1st1" class="form-control" id="e1">
 							</div>
 							<label class="control-label col-sm-1">inch:</label>
 							<div class="col-sm-5">
-								<input type="number" min="0" max="12"  name="east" class="form-control" id="e2">
+								<input type="number" min="0" max="12"  name="1st2" class="form-control" id="e2">
 							</div>
 							<h4> West side:</h4>
 							<label class="control-label col-sm-1">feet:</label>
 							<div class="col-sm-5">
-								<input type="number" min="0" name="west" class="form-control" id="w1">
+								<input type="number" min="0" name="2nd1" class="form-control" id="w1">
 							</div>
 							<label class="control-label col-sm-1">inch:</label>
 							<div class="col-sm-5">
-								<input type="number" min="0" max="12"  name="west" class="form-control" id="w2">
+								<input type="number" min="0" max="12"  name="2nd2" class="form-control" id="w2">
 							</div>
 							<h4> South side:</h4>
 							<label class="control-label col-sm-1">feet:</label>
 							<div class="col-sm-5">
-								<input type="number" min="0" name="south" class="form-control" id="s1">
+								<input type="number" min="0" name="3rd1" class="form-control" id="s1">
 							</div>
 							<label class="control-label col-sm-1">inch:</label>
 							<div class="col-sm-5">
-								<input type="number" min="0" max="12"  name="south" class="form-control" id="s2">
+								<input type="number" min="0" max="12"  name="3rd2" class="form-control" id="s2">
 							</div>
 							<h4> North side:</h4>
 							<label class="control-label col-sm-1">feet:</label>
 							<div class="col-sm-5">
-								<input type="number" min="0" name="north" class="form-control" id="n1">
+								<input type="number" min="0" name="4th1" class="form-control" id="n1">
 							</div>
 							<label class="control-label col-sm-1">inch:</label>
 							<div class="col-sm-5">
-								<input type="number" min="0" max="12" name="north" class="form-control" id="n2">
+								<input type="number" min="0" max="12" name="4th2" class="form-control" id="n2">
 							</div> <br/> <br/>
 							<button type="submit" value="submit" class="btn btn-md btn-default"> View area </button>
 							<button type="reset" value="reset" class="btn btn-md btn-default"> Reset </button>
@@ -99,21 +68,7 @@
 				<div class="sitefooter"></div>
 				<script src="http://localhost/Aminship/style/js/jquery.min.js"></script>
 				<script src="http://localhost/Aminship/style/js/bootstrap.min.js"></script>
-				<script>
-					function giveinfo(){
-						if (sessionStorage.getItem("visited") === null) {
-							alert("Please read all the information of this page before doing any calculation!");
-							sessionStorage.setItem("visited", "true");
-						  }
-					}
-					function result(){
-						if(confirm("Are you sure to view result")){
-							return true;
-						}else{
-							return false;
-						}
-					}
-				</script>
+				<script src="http://localhost/Aminship/style/js/jscript.js"></script>
 			</body>
 		</html>
 <?php
