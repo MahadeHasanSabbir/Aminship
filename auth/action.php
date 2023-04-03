@@ -33,16 +33,18 @@
 		}
 		$id = "$id1$id2$id3";
 
+		$table = "user"."$id";
+		
 		//sql query for upload data to database
-		$sqlquery1 = "INSERT INTO user (ID, name, password, mail, phone, measure) VALUES ('$id', '$name', '$password', '$email', '$number', '000');";
+		$sqlquery1 = "INSERT INTO user (ID, name, password, mail, phone, measure) VALUES ('$id', '$name', '$password', '$email', '$number', '000')";
 		$sqlquery2 = "UPDATE admin SET users = '$id3' WHERE ID = '$row[ID]'";
-		$sqlquery3 = "CREATE TABLE `aminship`.`$id` ( 
+		$sqlquery3 = "CREATE TABLE `aminship`.`$table` ( 
 		`UID` VARCHAR(9) CHARACTER SET utf8 COLLATE utf8_general_ci NOT NULL ,
-		`first` VARCHAR(3) CHARACTER SET utf8 COLLATE utf8_general_ci NOT NULL ,
-		`second` VARCHAR(3) CHARACTER SET utf8 COLLATE utf8_general_ci NOT NULL ,
-		`third` VARCHAR(3) CHARACTER SET utf8 COLLATE utf8_general_ci NOT NULL DEFAULT '000' ,
-		`fourth` VARCHAR(3) CHARACTER SET utf8 COLLATE utf8_general_ci NOT NULL DEFAULT '000' ,
-		`size` VARCHAR(5) CHARACTER SET utf8 COLLATE utf8_general_ci NOT NULL ,
+		`first` VARCHAR(6) CHARACTER SET utf8 COLLATE utf8_general_ci NOT NULL ,
+		`second` VARCHAR(6) CHARACTER SET utf8 COLLATE utf8_general_ci NOT NULL ,
+		`third` VARCHAR(6) CHARACTER SET utf8 COLLATE utf8_general_ci NOT NULL DEFAULT '000' ,
+		`fourth` VARCHAR(6) CHARACTER SET utf8 COLLATE utf8_general_ci NOT NULL DEFAULT '000' ,
+		`size` VARCHAR(6) CHARACTER SET utf8 COLLATE utf8_general_ci NOT NULL ,
 		PRIMARY KEY (`UID`)) ENGINE = InnoDB;";
 
 		//method for upload data to database
@@ -56,6 +58,7 @@
 		header("location:http://localhost/aminship/auth/log.php?id=$id");
 	}
 	else{
+		$_SESSION['error'] = 'Request failed';
 		header("location:http://localhost/aminship/auth/log.php");
 		exit;
 	}

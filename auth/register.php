@@ -6,44 +6,12 @@
 		<title> Registrartion Form | Aminship(working with your land) </title>
 		<link rel="stylesheet" type="text/css" href="http://localhost/Aminship/style/css/bootstrap.min.css">
 		<style>
-			body {padding-top:60px;}
+			body {padding-top:60px;background-color:darkseagreen;}
 		</style>
 	</head>
 	<body>
-		<nav class="navbar navbar-default navbar-fixed-top">
-			<div class="container">
-				<div class="navbar-header">
-					<button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#navbar" aria-expanded="false" aria-controls="navbar">
-						<span class="sr-only">Toggle navigation</span>
-						<span class="icon-bar"></span>
-						<span class="icon-bar"></span>
-						<span class="icon-bar"></span>
-					</button>
-					<a class="navbar-brand" href="http://localhost/Aminship">Aminship</a>
-				</div>
-				<div id="navbar" class="navbar-collapse collapse">
-					<ul class="nav navbar-nav">
-						<li><a href="http://localhost/Aminship"> Home </a></li>
-						<li><a href="http://localhost/Aminship/about.php"> About </a></li>
-						<li class="dropdown">
-							<a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false"> Area <span class="caret"></span></a>
-								<ul class="dropdown-menu">
-									<li onclick="giveinfo()"><a href="http://localhost/Aminship/tarea.php">Area for triangle</a></li>
-									<li onclick="giveinfo()"><a href="http://localhost/Aminship/area.php">Area for rectengle</a></li>
-									<li onclick="giveinfo()"><a href="http://localhost/Aminship/sarea.php">Area for circle</a></li>
-								</ul>
-						</li>
-						<li onclick="giveinfo()"><a href="http://localhost/Aminship/side.php"> Side </a></li>
-						<li onclick="giveinfo()"><a href="#"> Distribution </a></li>
-					</ul>
-					<ul class="nav navbar-nav navbar-right">
-						<li class="active"><a href="./register.php"><span class="glyphicon glyphicon-user"></span> Sign in</a></li>
-						<li><a href="./log.php"><span class="glyphicon glyphicon-user"></span> Log in</a></li>
-					</ul>
-				</div><!--/.nav-collapse -->
-			</div>
-		</nav>
-		<div class="container">
+		<?php include 'header.php'; ?>
+		<div class="container-fluid">
 			<div class="jumbotron">
 				<h2> Registration form </h2>
 				<form action="action.php" name="regform" onsubmit="return validate()" autocomplete="off" method="post">
@@ -59,19 +27,14 @@
 		<div id="content_footer"></div>
 		<script src="http://localhost/Aminship/style/js/jquery.min.js"></script>
 		<script src="http://localhost/Aminship/style/js/bootstrap.min.js"></script>
+		<script src="http://localhost/Aminship/style/js/jscript.js"></script>
 		<script>
-			function giveinfo(){
-				if (sessionStorage.getItem("visited") === null) {
-					alert("Please read all the information of this page before doing any calculation!");
-					sessionStorage.setItem("visited", "true");
-				  }
-			}
 			function validate(){
 				//Reguler Expressions
 				var namepattern = /^[A-Za-z \.]{3,35}$/i;
 				var numberpattern = /^\+88[0-9]{11}$/;
 				var emailpattern = /^[a-zA-Z0-9]+[a-zA-Z0-9_.-]+[a-zA-Z0-9_-]+@[a-zA-Z0-9]+[a-zA-Z0-9.-]+[a-zA-Z0-9]+.[a-z]{2,4}$/;
-				var passwordpattern = /^[a-z0-9\@\#\$\%\&]{4,8}$/i;
+				var passwordpattern = /^[A-Za-z0-9\@\#\$\%\&]{4,8}$/i;
 				
 				//Values from user
 				var namevalue = document.getElementById('name').value;
@@ -107,3 +70,15 @@
 		</script>
 	</body>
 </html>
+<?php
+	$ip = $_SERVER['REMOTE_ADDR'];
+	if (filter_var($ip, FILTER_VALIDATE_IP)) {
+		$date = new DateTime();
+		$time = $date -> format('Y-m-j:H:i:s');
+		
+		$connect = mysqli_connect("localhost", "root", "", "aminship");
+		$sql = "INSERT INTO visitors (time, ip) VALUES ('$time', '$ip')";
+		
+		mysqli_query($connect, $sql);
+	}
+?>
