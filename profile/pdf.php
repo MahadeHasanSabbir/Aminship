@@ -103,7 +103,7 @@
 			}
 			
 			// Output the PDF
-			$pdf->Output($uid.$pid.'.pdf', 'I');
+			$pdf->Output($uid.$pid.'.pdf', 'D');
 		}
 		//mehtod to redirect this page to another page
 		header("location:http://localhost/Aminship/profile/view.php");
@@ -114,21 +114,4 @@
 		header("location:http://localhost/Aminship/auth/log.php");
 		exit;
 	}
-/*
-// remove default header/footer
-$pdf->setPrintHeader(false);
-$pdf->setPrintFooter(false);
-
-// set some text to print
-$txt = <<<EOD
-TCPDF Example 002
-
-Default page header and footer are disabled using setPrintHeader() and setPrintFooter() methods.
-EOD;
-
-// print a block of text using Write()
-$pdf->Write(0, $txt, '', 0, 'C', true, 0, false, false, 0);
-
-
-*/
 ?>
