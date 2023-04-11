@@ -5,6 +5,7 @@
 		<meta name="viewport" content="width=device-width, initial-scale=1.0"/>
 		<title> Aminship (working with your land) </title>
 		<link rel="stylesheet" type="text/css" href="./style/css/bootstrap.min.css">
+		<link rel="stylesheet" type="text/css" href="./style/css/bootstrap-theme.min.css">
 		<style>
 			body {padding-top:60px;background-color:darkseagreen;}
 		</style>
@@ -13,7 +14,7 @@
 		<?php include 'header.php'; ?>
 		<div class="container-fluid" role="main">
 			<div class="jumbotron" style="margin-bottom:05px;">
-				<p> <strong> Welcome to Aminship (land sarvay) project.</strong> We will help to calculator the area of your land like a Amin.</p>
+				<p class="text-center"> <strong> Welcome to Aminship (land sarvay) project.</strong> We will help to calculator the area of your land like a Amin.</p>
 			</div>
 			<!--Slideer-->
 			<div id="carousel-generic" class="carousel slide" data-ride="carousel" style="height:60vh;">

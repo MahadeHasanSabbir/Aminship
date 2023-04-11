@@ -5,8 +5,10 @@
 		<meta name="viewport" content="width=device-width, initial-scale=1.0"/>
 		<title> Aminship (working with your land) </title>
 		<link rel="stylesheet" type="text/css" href="./style/css/bootstrap.min.css">
+		<link rel="stylesheet" type="text/css" href="./style/css/bootstrap-theme.min.css">
 		<style>
 			body {padding-top:60px;background-color:darkseagreen;}
+			#msg {display:none;}
 		</style>
 	</head>
 	<body>
@@ -17,7 +19,7 @@
 				<li class="active"> Area for rectengle shape land </li>
 			</ul>
 			<div class="page-header"> <h4> Area Calculator for Rectengle shape land </h4> </div>
-			<div id="msg" class="alert alert-success col-sm-12 hidden">
+			<div id="msg" class="alert alert-info col-sm-12">
 				<span class="glyphicon glyphicon-info-sign"> </span>
 				<span id="result"> </span>
 			</div>
