@@ -1,6 +1,9 @@
 <?php
 	session_start();
-	
+	if(isset($_SESSION['aid'])){
+		header("location:http://localhost/Aminship/admin");
+		exit;
+	}
 	$conect = mysqli_connect("localhost","root","","aminship");
 ?>
 <!DOCTYPE html>
@@ -10,6 +13,7 @@
 		<meta name="viewport" content="width=device-width, initial-scale=1.0"/>
 		<title> Login page | Aminship (working with your land) </title>
 		<link rel="stylesheet" type="text/css" href="http://localhost/Aminship/style/css/bootstrap.min.css">
+		<link rel="stylesheet" type="text/css" href="http://localhost/Aminship/style/css/bootstrap-theme.min.css">
 		<style>
 			body {padding-top:80px;background-color:darkseagreen;}
 			.justify {display:grid;justify-content:center;text-align:center;}
