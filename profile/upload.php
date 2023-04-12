@@ -43,8 +43,7 @@
 		exit;
 	}
 	else{
-		$_SESSION['error'] = 'Request failed';
-		header("location:http://localhost/aminship/auth/log.php");
+		header("location:http://localhost/aminship/auth");
 		exit;
 	}
 ?>

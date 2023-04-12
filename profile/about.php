@@ -20,6 +20,7 @@
 				<meta name="viewport" content="width=device-width, initial-scale=1.0"/>
 				<title> <?php echo $row["name"];?>'s Profile | Aminship (working with your land) </title>
 				<link rel="stylesheet" type="text/css" href="http://localhost/Aminship/style/css/bootstrap.min.css" />
+				<link rel="stylesheet" type="text/css" href="http://localhost/Aminship/style/css/bootstrap-theme.min.css" />
 				<style>
 					body {padding-top:30px;background-color:darkseagreen;}
 					.mb {margin-bottom:10px;}
@@ -30,11 +31,9 @@
 				<div class="container-fluid">
 					<div class="page-header">
 						<h4 style="display:inline-block;" class="col-sm-9 col-xs-6"> Your information </h4>
-						<div class="btn-group">
-							<a href='./profileupdate.php' style="color:brown;" class="btn btn-md bg-warning" onclick="return permit1()"> Edit profile </a>
-							<a href='./delete.php' style="color:darkred;" class="btn btn-md bg-danger" onclick="return permit2()"> Delete ID </a>
-							<a href='./view.php' style="color:mediumblue;" class="btn btn-md bg-info"> Meserment history </a>
-						</div>
+						<a href='./profileupdate.php' style="color:brown;" class="btn btn-md bg-warning" onclick="return permit1()"> Edit profile </a>
+						<a href='./delete.php' style="color:darkred;" class="btn btn-md bg-danger" onclick="return permit2()"> Delete ID </a>
+						<a href='./view.php' style="color:mediumblue;" class="btn btn-md bg-info"> Meserment history </a>
 					</div>
 					<div class="jumbotron" style="display:grid;">
 						<div class="col-sm-12 mb">
@@ -95,8 +94,7 @@
 <?php
 	}
 	else{
-		$_SESSION['error'] = 'Request failed';
-		header("location:http://localhost/Aminship/auth/log.php");
+		header("location:http://localhost/Aminship/auth");
 		exit;
 	}
 ?>
