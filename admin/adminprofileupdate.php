@@ -1,11 +1,11 @@
 <?php
 	session_start();
-	if(isset($_SESSION['id'])){
+	if(isset($_SESSION['aid'])){
 		//create connection with database
 		$conect = mysqli_connect("localhost","root","","aminship");
 
 		//sql query to find user information from database
-		$sql = "SELECT * FROM admin WHERE admin.ID = '$_SESSION[id]'";
+		$sql = "SELECT * FROM admin WHERE admin.ID = '$_SESSION[aid]'";
 
 		//take data from database
 		$data = mysqli_query($conect, $sql);

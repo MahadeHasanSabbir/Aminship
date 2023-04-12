@@ -1,6 +1,6 @@
 <?php
 	session_start();
-	if(isset($_SESSION['id'])){
+	if(isset($_SESSION['aid'])){
 		if(isset($_GET['key']) && isset($_GET['key'])){
 			$connect = mysqli_connect('localhost','root','','aminship');
 			$uid = $_GET['id'];
@@ -27,7 +27,7 @@
 			
 			// Add a page
 			$pdf->AddPage();
-			$pdf->SetFillColor(220, 240, 220);
+			$pdf->SetFillColor(240, 240, 240);
 			
 			// Set the font and write some HTML content
 			$pdf->SetFont('helvetica', '', 12);
@@ -40,18 +40,18 @@
 			$date = new DateTime();
 			$today = $date -> format('j/m/Y');
 			$pdf->Cell(40, 10, $today, 0, 1, 'L');
-			$pdf->Cell(200, 10, ' ', 0, 1, 'C');
 			
-			$pdf->Cell(100, 10, 'Land shape:', 0, 0, 'R');
 			if($row['fourth'] != 0){
-				$pdf->Cell(100, 10, ' Rectengle ', 0, 1, 'L');
+				$pdf->Cell(0, 10, 'Land shape: Rectengle ', 0, 1, 'C');
 			}
 			else if($row['third'] != 0){
-				$pdf->Cell(100, 10, ' Triangle ', 0, 1, 'L');
+				$pdf->Cell(0, 10, 'Land shape: Triangle ', 0, 1, 'C');
 			}
 			else{
-				$pdf->Cell(100, 10, ' Circle ', 0, 1, 'L');
+				$pdf->Cell(0, 10, 'Land shape: Circle ', 0, 1, 'C');
 			}
+			$pdf->Cell(0, 10, ' ', 0, 1, 'C');
+			
 			// set image file path
 			$image_file = 'http://localhost/Aminship/style/image.jpg';
 
@@ -67,51 +67,46 @@
 			$pdf->Image($image_file, $image_x, $image_y, $image_width, $image_height);
 
 			// Retrieve data from database and loop through results
-			$pdf->Cell(195, 10, 'Measurement information', 0, 1, 'C');
-			$pdf->Cell(200, 10, ' ', 0, 1, 'C');
+			$pdf->Cell(0, 10, 'Measurement information', 0, 1, 'C', 1);
+			$pdf->Cell(0, 10, ' ', 0, 1, 'C');
 			if($row) {
-				$pdf->Cell(55, 10, ' ', 0, 0, 'C');
 				if($row['fourth'] != 0){
-					$pdf->Cell(40, 10, 'East side', 0, 0, 'C', 1);
+					$pdf->Cell(90, 10, 'East side: ', 0, 0, 'R');
 				}
 				else{
-					$pdf->Cell(40, 10, '1st side', 0, 0, 'C', 1);
+					$pdf->Cell(90, 10, '1st side: ', 0, 0, 'R');
 				}
 				$pdf->Cell(40, 10, $row['first'], 0, 0, 'C');
 				$pdf->Cell(55, 10, 'feet', 0, 1, 'L');
-				$pdf->Cell(55, 10, ' ', 0, 0, 'C');
 				if($row['fourth'] != 0){
-					$pdf->Cell(40, 10, 'West side', 0, 0, 'C', 1);
+					$pdf->Cell(90, 10, 'West side: ', 0, 0, 'R');
 				}
 				else{
-					$pdf->Cell(40, 10, '2nd side', 0, 0, 'C', 1);
+					$pdf->Cell(90, 10, '2nd side: ', 0, 0, 'R');
 				}
 				$pdf->Cell(40, 10, $row['second'], 0, 0, 'C');
 				$pdf->Cell(55, 10, 'feet', 0, 1, 'L');
 				if($row['third'] != 0){
-					$pdf->Cell(55, 10, ' ', 0, 0, 'C');
 					if($row['fourth'] != 0){
-						$pdf->Cell(40, 10, 'South side', 0, 0, 'C', 1);
+						$pdf->Cell(90, 10, 'South side: ', 0, 0, 'R');
 					}
 					else{
-						$pdf->Cell(40, 10, '3rd side', 0, 0, 'C', 1);
+						$pdf->Cell(90, 10, '3rd side: ', 0, 0, 'R');
 					}
 					$pdf->Cell(40, 10, $row['third'], 0, 0, 'C');
 					$pdf->Cell(55, 10, 'feet', 0, 1, 'L');
 				}
 				if($row['fourth'] != 0){
-					$pdf->Cell(55, 10, ' ', 0, 0, 'C');
-					$pdf->Cell(40, 10, 'North side', 0, 0, 'C', 1);
+					$pdf->Cell(90, 10, 'North side: ', 0, 0, 'R');
 					$pdf->Cell(40, 10, $row['fourth'], 0, 0, 'C');
 					$pdf->Cell(55, 10, 'feet', 0, 1, 'L');
 				}
-				$pdf->Cell(55, 10, ' ', 0, 1, 'C');
-				$pdf->Cell(55, 10, ' ', 0, 0, 'C');
-				$pdf->Cell(40, 10, 'Area of land',0, 0, 'C', 1);
+				$pdf->Cell(0, 10, ' ', 0, 1, 'C');
+				$pdf->Cell(90, 10, 'Area of land: ',0, 0, 'R');
 				$pdf->Cell(40, 10, $row['size'], 0, 0, 'C');
 				$pdf->Cell(55, 10, 'cent', 0, 1, 'L');
-				$pdf->Cell(95, 10, ' ', 0, 0, 'L');
-				$pdf->Cell(40, 10, $row['size'] * 435.6, 0, 0, 'C');
+				$pdf->Cell(90, 10, ' ', 0, 0, 'L');
+				$pdf->Cell(40, 10, round($row['size'] * 435.6, 3), 0, 0, 'C');
 				$pdf->Cell(40, 10, 'Sq feet', 0, 1, 'L');
 			}
 			

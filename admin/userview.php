@@ -1,6 +1,6 @@
 <?php
 	session_start();
-	if(isset($_SESSION['id'])){
+	if(isset($_SESSION['aid'])){
 		//create connection with database
 		$conect = mysqli_connect("localhost","root","","aminship");
 		$id = $_GET['key'];
@@ -20,6 +20,7 @@
 				<meta name="viewport" content="width=device-width, initial-scale=1.0"/>
 				<title> <?php echo $row["name"];?>'s Profile | Aminship (working with your land) </title>
 				<link rel="stylesheet" type="text/css" href="http://localhost/Aminship/style/css/bootstrap.min.css" />
+				<link rel="stylesheet" type="text/css" href="http://localhost/Aminship/style/css/bootstrap-theme.min.css" />
 				<style>
 					body {padding-top:30px;background-color:darkseagreen;}
 				</style>

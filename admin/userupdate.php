@@ -1,6 +1,6 @@
 <?php
 	session_start();
-	if(isset($_SESSION['id'])){
+	if(isset($_SESSION['aid'])){
 		//create connection with database
 		$conect = mysqli_connect("localhost", "root", "", "aminship");
 
@@ -9,7 +9,6 @@
 		$name = $_POST['name'];
 		$number = $_POST['number'];
 		$email = $_POST['email'];
-		//$password = password_hash($_POST['password'], PASSWORD_BCRYPT) password = '$password',;
 
 		//sql query
 		$sql = "UPDATE user SET name = '$name', mail = '$email', phone = '$number' WHERE user.ID = '$id'";

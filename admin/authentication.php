@@ -25,7 +25,7 @@
 			// Check if the password is correct
 			if(password_verify($password, $row['password'])) {
 				// Login successful
-				$_SESSION['id'] = $id;
+				$_SESSION['aid'] = $id;
 				header('location: http://localhost/Aminship/admin/adminprofile.php');
 				exit;
 			} else {

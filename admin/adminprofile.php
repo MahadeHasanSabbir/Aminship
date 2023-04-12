@@ -1,11 +1,11 @@
 <?php
 	session_start();
-	if(isset($_SESSION['id'])){
+	if(isset($_SESSION['aid'])){
 		//create connection with database
 		$conect = mysqli_connect("localhost","root","","aminship");
 
 		//sql query to find user information from database
-		$sql = "SELECT * FROM admin WHERE admin.id = '$_SESSION[id]'";
+		$sql = "SELECT * FROM admin WHERE admin.id = '$_SESSION[aid]'";
 
 		//take data from database
 		$data = mysqli_query($conect, $sql);
@@ -20,6 +20,7 @@
 				<meta name="viewport" content="width=device-width, initial-scale=1.0"/>
 				<title> Admin panel </title>
 				<link rel="stylesheet" type="text/css" href="http://localhost/Aminship/style/css/bootstrap.min.css">
+				<link rel="stylesheet" type="text/css" href="http://localhost/Aminship/style/css/bootstrap-theme.min.css">
 				<style>
 					body {padding-top:60px;background-color:darkseagreen;}
 				</style>
@@ -66,9 +67,9 @@
 						echo "<b class='col-sm-3 col-xs-4'> Last time log-in </b> <span class='col-sm-9'> : &nbsp",round((strtotime($today) - strtotime($row['lastlog']))/60/60/24), " day ago </span></br>";
 						echo "<hr/>";
 					?>
-					<a href='./adminprofileupdate.php' style="color:brown;" class="btn btn-md bg-warning" onclick="return permit1()"> Edit info </a>
+					<a href="./adminprofileupdate.php" class="btn btn-md btn-sm btn-warning" onclick="return permit1()"> Edit info </a>
 					</div>
-					<div class="well" style="background-color:ghostwhite;">
+					<div class="well">
 						<p class="text-center"> Website reach information </p>
 						<div class="row">
 							<div class="col-sm-4 text-center">
@@ -123,8 +124,8 @@
 								</div>
 							</div>
 							<div class="btn-group col-sm-offset-5 col-xs-offset-4">
-								<button class="btn btn-md btn-sm btn-default" onclick="givealert()"> Clear today info</button>
-								<button class="btn btn-md btn-sm btn-default" onclick="givealert()"> Clear all info</button>
+								<a class="btn btn-md btn-sm btn-info" onclick="return permit4()" href="./delete.php?dd=0"> Clear today's info</a>
+								<a class="btn btn-md btn-sm btn-warning" onclick="return permit4()" href="./delete.php?dd=1"> Clear all info</a>
 							</div>
 						</div> <hr/>
 						<p class="text-center"> Website user information </p>

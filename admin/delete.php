@@ -1,6 +1,6 @@
 <?php
 	session_start();
-	if(isset($_SESSION['id'])){
+	if(isset($_SESSION['aid'])){
 		if(isset($_GET['id']) && !isset($_GET['key'])){
 			//create connection with database
 			$conect = mysqli_connect("localhost","root","","aminship");
@@ -32,6 +32,30 @@
 			mysqli_query($conect, $sql);
 
 			header("location:http://localhost/aminship/admin/view.php?id=$_GET[id]");
+			exit;
+		}
+		else if(isset($_GET['dd']) && $_GET['dd'] == 0){
+			$date = new DateTime();
+			$today = $date -> format('Y-m-j');
+			
+			//create connection with database
+			$conect = mysqli_connect("localhost","root","","aminship");
+			
+			$dquery = "DELETE FROM visitors WHERE time LIKE '$today%'";
+			echo $dquery;
+			mysqli_query($conect, $dquery);
+			
+			header("location:http://localhost/aminship/admin/adminprofile.php");
+			exit;
+		}
+		else if(isset($_GET['dd']) && $_GET['dd'] == 1){
+			//create connection with database
+			$conect = mysqli_connect("localhost","root","","aminship");
+			
+			$dquery = "DELETE FROM visitors";
+			mysqli_query($conect, $dquery);
+			echo $dquery;
+			header("location:http://localhost/aminship/admin/adminprofile.php");
 			exit;
 		}
 		else{

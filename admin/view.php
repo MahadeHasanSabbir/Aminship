@@ -1,6 +1,6 @@
 <?php
 	session_start();
-	if(isset($_SESSION['id'])){
+	if(isset($_SESSION['aid'])){
 		//create connection with database
 		$conect = mysqli_connect("localhost","root","","aminship");
 
@@ -20,6 +20,7 @@
 				<meta name="viewport" content="width=device-width, initial-scale=1.0"/>
 				<title> All saved meserment information page </title>
 				<link rel="stylesheet" type="text/css" href="http://localhost/Aminship/style/css/bootstrap.min.css" />
+				<link rel="stylesheet" type="text/css" href="http://localhost/Aminship/style/css/bootstrap-theme.min.css" />
 				<style>
 					body {padding-top:60px;background-color:darkseagreen;}
 				</style>
@@ -100,7 +101,7 @@
 					<?php
 						}
 						else{
-							echo "<div class='jumbotron'> <h4> User don't save any meserment yet! </h4> <br/> </div>";
+							echo "<div class='jumbotron'> <h4 class='text-center'> User don't save any meserment yet! </h4> <br/> </div>";
 							$sql = "UPDATE user SET measure = '000' WHERE user.ID = '$_GET[id]'";
 							mysqli_query($conect, $sql);
 						}

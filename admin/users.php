@@ -1,6 +1,6 @@
 <?php
 	session_start();
-	if(isset($_SESSION['id'])){
+	if(isset($_SESSION['aid'])){
 		//create connection with database
 		$conect = mysqli_connect("localhost","root","","aminship");
 
@@ -18,6 +18,7 @@
 				<meta name="viewport" content="width=device-width, initial-scale=1.0"/>
 				<title> All user information page </title>
 				<link rel="stylesheet" type="text/css" href="http://localhost/Aminship/style/css/bootstrap.min.css" />
+				<link rel="stylesheet" type="text/css" href="http://localhost/Aminship/style/css/bootstrap-theme.min.css" />
 				<style>
 					body {padding-top:60px;background-color:darkseagreen;}
 				</style>
@@ -54,7 +55,7 @@
 					?>
 							<div class="jumbotron">
 								<table class="table table-bordered">
-									<caption> <h4 class="text-center"> All registered user </h4> </caption>
+									<caption> <h4 class="text-center"> All registered user info </h4> </caption>
 									<thead>
 										<tr>
 											<th class="col-md-2"> User ID </th>
@@ -84,8 +85,8 @@
 					<?php
 						}
 						else{
-							echo "<div class='jumbotron'> <h4> You don't have any user yet! </h4> <br/>  </div>";
-							$sql = "UPDATE admin SET users = '000' WHERE admin.ID = '$_SESSION[id]'";
+							echo "<div class='jumbotron'> <h4 class='text-center'> You don't have any user yet! </h4> <br/>  </div>";
+							$sql = "UPDATE admin SET users = '000' WHERE admin.ID = '$_SESSION[aid]'";
 							mysqli_query($conect, $sql);
 							
 						}

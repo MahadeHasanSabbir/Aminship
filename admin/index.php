@@ -1,5 +1,9 @@
 <?php
 	session_start();
+	if(isset($_SESSION['aid']) && !isset($_SESSION['success'])){
+		header('location: http://localhost/Aminship/admin/adminprofile.php');
+		exit;
+	}
 ?>
 <!DOCTYPE html>
 <html>
@@ -8,6 +12,7 @@
 		<meta name="viewport" content="width=device-width, initial-scale=1.0"/>
 		<title> Admin Log in page </title>
 		<link rel="stylesheet" type="text/css" href="http://localhost/Aminship/style/css/bootstrap.min.css">
+		<link rel="stylesheet" type="text/css" href="http://localhost/Aminship/style/css/bootstrap-theme.min.css">
 		<style>
 			body {padding-top:60px;}
 			.justify {display:grid;justify-content:center;text-align:center;width:70vw;}
@@ -44,9 +49,15 @@
 					}
 
 				?>
-				<form action="authentication.php" method="post">
-					<label class="control-label"> Admin ID </label>: <input type="text" name="id" class="form-control" id="id" placeholder="Enter admin ID" required="" autofocus /> <br/>
-					<label class="control-label"> Password </label>: <input type="password" name="password" class="form-control" id="pass" placeholder="Enter admin password" title="alphanumaric and @,#,$,%,& are allow" required=""/> <br/>
+				<form class="form-horizontal" action="authentication.php" method="post">
+					<div class="form-group">
+						<label class="control-label"> Admin ID </label>
+						<input type="text" name="id" class="form-control" id="id" placeholder="Enter admin ID" required="" autofocus />
+					</div>
+					<div class="form-group">
+						<label class="control-label"> Password </label>
+						<input type="password" name="password" class="form-control" id="pass" placeholder="Enter admin password" title="alphanumaric and @,#,$,%,& are allow" required=""/>
+					</div>
 					<button class="btn btn-md btn-default" type="Submit" value="Login"> Login </button>
 					<button class="btn btn-md btn-default" type="Reset" value="Reset"> Reset </button> <br/>
 				</form>
