@@ -10,6 +10,10 @@ function givealert(){
 	return false;
 }
 
+function drow(){
+	alert("Please drow and label your land by yourself in given space of document");
+}
+
 function permit(){
 	if(!confirm("Do you want to Log out?")){
 		return false;
@@ -74,7 +78,7 @@ function permit3(){
 }
 
 function permit4(){
-	if(!confirm("?")){
+	if(!confirm("Sure to clear information?")){
 		return false;
 	}
 	else{
