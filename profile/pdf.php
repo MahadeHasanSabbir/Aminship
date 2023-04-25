@@ -50,7 +50,7 @@
 			else{
 				$pdf->Cell(0, 10, 'Land shape: Circle ', 0, 1, 'C');
 			}
-			$pdf->Cell(0, 10, ' ', 0, 1, 'C');
+			$pdf->Cell(0, 60, ' ', 0, 1, 'C');
 			
 			// Retrieve data from database and loop through results
 			$pdf->Cell(0, 10, 'Measurement information', 0, 1, 'C', 1);

@@ -25,36 +25,41 @@
 					<div class="jumbotron">
 						<form action="calculate.php" class="form-horizontal" name="areacalculate" onsubmit="return result()" method="post">
 							<h4> 1<sup>st</sup> side:</h4>
-							<label class="control-label col-sm-1">feet:</label>
-							<div class="col-sm-5">
-								<input type="number" min="0" name="1st1" class="form-control" id="1st1" required="">
-							</div>
-							<label class="control-label col-sm-1">inch:</label>
-							<div class="col-sm-5">
-								<input type="number" min="0" max="12"  name="1st2" class="form-control" id="1st2">
+							<div class="form-group">
+								<label class="control-label col-sm-1">feet:</label>
+								<div class="col-sm-5">
+									<input type="number" min="0" name="1st1" class="form-control" id="1st1" required="" autofocus="">
+								</div>
+								<label class="control-label col-sm-1">inch:</label>
+								<div class="col-sm-5">
+									<input type="number" min="0" max="12"  name="1st2" class="form-control" id="1st2">
+								</div>
 							</div>
 							<h4> 2<sup>nd</sup> side:</h4>
-							<label class="control-label col-sm-1">feet:</label>
-							<div class="col-sm-5">
-								<input type="number" min="0" name="2nd1" class="form-control" id="2nd1" required="">
-							</div>
-							<label class="control-label col-sm-1">inch:</label>
-							<div class="col-sm-5">
-								<input type="number" min="0" max="12"  name="2nd2" class="form-control" id="2nd2">
+							<div class="form-group">
+								<label class="control-label col-sm-1">feet:</label>
+								<div class="col-sm-5">
+									<input type="number" min="0" name="2nd1" class="form-control" id="2nd1" required="">
+								</div>
+								<label class="control-label col-sm-1">inch:</label>
+								<div class="col-sm-5">
+									<input type="number" min="0" max="12"  name="2nd2" class="form-control" id="2nd2">
+								</div>
 							</div>
 							<h4> 3<sup>rd</sup> side:</h4>
-							<label class="control-label col-sm-1">feet:</label>
-							<div class="col-sm-5">
-								<input type="number" min="0" name="3rd1" class="form-control" id="3rd1" required="">
-							</div>
-							<label class="control-label col-sm-1">inch:</label>
-							<div class="col-sm-5">
-								<input type="number" min="0" max="12" name="3rd2" class="form-control" id="3rd2"> 
-							</div> <br/> <br/>
+							<div class="form-group">
+								<label class="control-label col-sm-1">feet:</label>
+								<div class="col-sm-5">
+									<input type="number" min="0" name="3rd1" class="form-control" id="3rd1" required="">
+								</div>
+								<label class="control-label col-sm-1">inch:</label>
+								<div class="col-sm-5">
+									<input type="number" min="0" max="12" name="3rd2" class="form-control" id="3rd2"> 
+								</div>
+							</div> <br/>
 							<button type="submit" value="submit" class="btn btn-md btn-default"> View area </button>
 							<button type="reset" value="reset" class="btn btn-md btn-default"> Reset </button>
 						</form>
-						<div id="result"></div>
 					</div>
 				</div>
 				<div class="sitefooter"></div>

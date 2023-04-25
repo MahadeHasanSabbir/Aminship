@@ -7,12 +7,9 @@
 		$table = "user"."$_SESSION[id]";
 
 		//sql query to find user information from database
-		//$sql = "SELECT * FROM user WHERE ID = '$_SESSION[id]'";
 		$sqlquery = "SELECT * FROM $table";
 
 		//take data from database
-		//$data = mysqli_query($conect, $sql);
-		$data = mysqli_query($conect, $sqlquery);
 		$data1 = mysqli_query($conect, $sqlquery);
 ?>
 		<!DOCTYPE html>
@@ -25,6 +22,8 @@
 				<link rel="stylesheet" type="text/css" href="http://localhost/Aminship/style/css/bootstrap-theme.min.css" />
 				<style>
 					body {padding-top:60px;background-color:darkseagreen;}
+					.center {display:grid;justify-content:center;}
+					.pagination>.active>a {background-color:darkseagreen;}
 				</style>
 			</head>
 			<body>
@@ -32,12 +31,26 @@
 				<div class="container-fluid">
 					<?php
 						$row1=mysqli_fetch_assoc($data1);
-						//if($row['measure'] != '000'){
-							if(isset($row1) && $row1 != null){
+						if(isset($row1) && $row1 != null){
+							$items_per_page = 10;
+							$total_items_query = "SELECT COUNT(*) as total FROM $table";
+							$total_items_result = mysqli_query($conect, $total_items_query);
+							$total_items = mysqli_fetch_assoc($total_items_result);
+							$total_pages = ceil($total_items['total'] / $items_per_page);
+							
+							$page = isset($_GET['page']) ? $_GET['page'] : 1;
+							$page = max(1, min($total_pages, $page));
+							$offset = ($page - 1) * $items_per_page;
+
+							$query = "SELECT * FROM $table LIMIT $offset, $items_per_page";
+							$data = mysqli_query($conect, $query);
+
 					?>
-							<div class="jumbotron">
+							<div class="well" style="margin-bottom:0px;">
 								<table class="table table-bordered">
-									<caption style="text-align:center;"> <h4> All saved meserment </h4> </caption>
+									<caption style="text-align:center;padding-top:0px;">
+										<h4> All saved meserment </h4>
+									</caption>
 									<thead>
 										<tr>
 											<th> NO </th>
@@ -53,31 +66,47 @@
 									<tbody>
 										<?php
 										while($row=mysqli_fetch_assoc($data)){
-										echo "<tr>
-												<td> $row[UID] </td>
-												<td> $row[first] </td>
-												<td> $row[second] </td>
-												<td> $row[third] </td>
-												<td> $row[fourth] </td>
-												<td> $row[size] </td>
-												<td>
-													<a href='pdf.php?key=$row[UID]'><span class='glyphicon glyphicon-download-alt'></span> Download as pdf </a>
-												</td>
-												<td>
-													<a href='delete.php?key=$row[UID]' onclick='return permit3()'>
-														<span class='glyphicon glyphicon-trash'></span> Delete measurement
-													</a>
-												</td>
-											</tr>";
+										echo "<tr>";
+											echo "<td>" . $row['UID'] . "</td>";
+											echo "<td>" . $row['first'] . "</td>";
+											echo "<td>" . $row['second'] . "</td>";
+											echo "<td>" . $row['third'] . "</td>";
+											echo "<td>" . $row['fourth'] . "</td>";
+											echo "<td>" . $row['size'] . "</td>";
+											echo "<td class='text-center'>
+												<a href='pdf.php?key=$row[UID]' onclick='drow()'>
+													<span class='glyphicon glyphicon-download-alt'></span> Download as pdf
+												</a>
+											</td>
+											<td class='text-center'>
+												<a href='delete.php?key=$row[UID]' onclick='return permit3()'>
+													<span class='glyphicon glyphicon-trash'></span> Delete measurement
+												</a>
+											</td>
+										</tr>";
 										}
 										?>
 									</tbody>
 								</table>
-							</div>
 					<?php
+							if ($total_pages > 1) {
+								echo '<div class="center"><ul class="pagination">';
+								for ($i = 1; $i <= $total_pages; $i++) {
+									echo "<li";
+									if ($i == $page) {
+										echo " class='active'";
+									}
+									echo '><a href="?page=' . $i . '">' . $i . '</a></li>';
+								}
+								echo "</ul></div>";
+							}
+							echo "</div>";
 						}
 						else{
-							echo "<div class='jumbotron'> <h4> You don't save any meserment yet! </h4> <br/> <br/> <h5> Save meserment for visit those. </h5> </div>";
+							echo "<div class='jumbotron'>
+								<h4 class='text-center'> You don't save any meserment yet! </h4> <br/> <br/>
+								<h5 class='text-center'> Save meserment for visit those. </h5>
+							</div>";
 							$sql = "UPDATE user SET measure = '000' WHERE user.ID = '$_SESSION[id]'";
 							mysqli_query($conect, $sql);
 						}

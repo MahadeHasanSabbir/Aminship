@@ -53,7 +53,7 @@
 							<span class="col-sm-9 col-xs-7"> : &nbsp <?php echo $row["mail"]; ?></span>
 						</div>
 						<div class="col-sm-12 mb">
-							<b class="col-sm-3 col-xs-5"> Saved measurement </b>
+							<b class="col-sm-3 col-xs-5"> Available saved measurement </b>
 							<span class="col-sm-9 col-xs-7"> : &nbsp
 							<?php
 								$table = "user"."$_SESSION[id]";
@@ -67,7 +67,7 @@
 							</span>
 						</div>
 						<div class="col-sm-12 mb">
-							<b class='col-sm-3'> Total Measurement </b>
+							<b class="col-sm-3 col-xs-5"> Total saved Measurement </b>
 							<span class='col-sm-9'> : &nbsp <?php echo round($row["measure"]); ?></span>
 						</div>
 						<div class="col-sm-12 mb">
