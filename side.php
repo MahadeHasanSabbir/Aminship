@@ -22,28 +22,34 @@
 			<div class="jumbotron">
 				<form class="form-horizontal" name="areacalculate" onsubmit="return calculate()" method="post">
 					<h4>1<sup>st</sup> known side:</h4>
-					<label class="control-label col-sm-1">feet:</label>
-					<div class="col-sm-5">
-						<input type="number" min="0" name="known" class="form-control" id="k1" required="">
-					</div>
-					<label class="control-label col-sm-1">inch:</label>
-					<div class="col-sm-5">
-						<input type="number" min="0" max="12"  name="known" class="form-control" id="k2">
+					<div class="form-group">
+						<label class="control-label col-sm-1">feet:</label>
+						<div class="col-sm-5">
+							<input type="number" min="0" name="known" class="form-control" id="k1" autofocus="" required="">
+						</div>
+						<label class="control-label col-sm-1">inch:</label>
+						<div class="col-sm-5">
+							<input type="number" min="0" max="12"  name="known" class="form-control" id="k2">
+						</div>
 					</div>
 					<h4> known side's alternate side:</h4>
-					<label class="control-label col-sm-1">feet:</label>
-					<div class="col-sm-5">
-						<input type="number" min="0" name="aknown" class="form-control" id="ak1" required="">
-					</div>
-					<label class="control-label col-sm-1">inch:</label>
-					<div class="col-sm-5">
-						<input type="number" min="0" max="12"  name="aknown" class="form-control" id="ak2">
+					<div class="form-group">
+						<label class="control-label col-sm-1">feet:</label>
+						<div class="col-sm-5">
+							<input type="number" min="0" name="aknown" class="form-control" id="ak1" required="">
+						</div>
+						<label class="control-label col-sm-1">inch:</label>
+						<div class="col-sm-5">
+							<input type="number" min="0" max="12"  name="aknown" class="form-control" id="ak2">
+						</div>
 					</div>
 					<h4>Total area:</h4>
-					<label class="control-label col-sm-1">Cent:</label>
-					<div class="col-sm-5">
-						<input type="text" name="area" class="form-control" id="a" required=""/>
-					</div> <br/> <br/>
+					<div class="form-group">
+						<label class="control-label col-sm-1">Cent:</label>
+						<div class="col-sm-5">
+							<input type="text" name="area" class="form-control" id="a" required=""/>
+						</div>
+					</div> <br/>
 					<button type="submit" value="submit" class="btn btn-md btn-default" > Submit </button>
 					<button type="reset" value="reset" class="btn btn-md btn-default" onclick="document.getElementById('msg').style.display='none';"> Reset </button>
 				</form>

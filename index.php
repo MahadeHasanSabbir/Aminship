@@ -8,6 +8,10 @@
 		<link rel="stylesheet" type="text/css" href="./style/css/bootstrap-theme.min.css">
 		<style>
 			body {padding-top:60px;background-color:darkseagreen;}
+			input {padding:10px;}
+			textarea {padding:10px;resize:none;}
+			.center {display:grid;justify-content:center;}
+			.center>div {padding:10px;}
 		</style>
 	</head>
 	<body>
@@ -92,29 +96,48 @@
 				<p class="text-center"> To know more visit <a href="./about.php" class="btn btn-sm btn-link"> About </a> </p>
 			</div>
 			<!--contact us-->
-			<div class="jumbotron">
-				<h4 class="text-center"> Contact with us </h4>
-				<form class="form-horizontal" name="contact" method="post" onsubmit="return givealert()">
-					<div class="form-group">
-						<label class="control-label col-sm-2"> Name:</label>
-						<div class="col-sm-10">
-							<input type="text" name="name" placeholder="Enter your name here" class="form-control" required=""/>
+			<div class="well" style="display:flow-root;margin-bottom:05px;">
+				<div class="col-md-6" style="margin-bottom:35px;">
+					<h4 class="text-center" style="margin-bottom:20px;"> Contact with us </h4>
+					<div class="center">
+						<div>
+							<span class="glyphicon glyphicon-envelope"></span>
+							<a href="mailto:info@aminship.com" > info@aminship.com </a>
+						</div>
+						<div>
+							<span class="glyphicon glyphicon-phone"></span>
+							<b>+8801000000000</b>
+						</div>
+						<div>
+							<span class="glyphicon glyphicon-map-marker"></span>
+							<i> city, upzila, district </i>
 						</div>
 					</div>
-					<div class="form-group">
-						<label class="control-label col-sm-2"> E-mail:</label>
-						<div class="col-sm-10">
-							<input type="text" name="email" placeholder="Enter your e-mail here" class="form-control" required=""/>
+				</div>
+				<div class="col-md-6">
+					<h4 class="text-center" style="padding-bottom:10px;"> Massage with us</h4>
+					<form class="form-horizontal" name="contact" method="post" onsubmit="return givealert()">
+						<div class="form-group">
+							<label class="control-label col-sm-2"> Name:</label>
+							<div class="col-sm-10">
+								<input type="text" name="name" placeholder="Enter your name here" class="form-control" required=""/>
+							</div>
 						</div>
-					</div>
-					<div class="form-group">
-						<label class="control-label col-sm-2"> Massage:</label>
-						<div class="col-sm-10">
-							<textarea name="text" placeholder="Enter your massage here" class="form-control" rows="4" required=""></textarea>
+						<div class="form-group">
+							<label class="control-label col-sm-2"> E-mail:</label>
+							<div class="col-sm-10">
+								<input type="text" name="email" placeholder="Enter your e-mail here" class="form-control" required=""/>
+							</div>
 						</div>
-					</div>
-					<button type="submit" value="submit" class="btn btn-md btn-sm btn-default col-sm-offset-2"> Send massage </button>
-				</form>
+						<div class="form-group">
+							<label class="control-label col-sm-2"> Massage:</label>
+							<div class="col-sm-10">
+								<textarea name="text" placeholder="Enter your massage here" class="form-control" rows="5" required=""></textarea>
+							</div>
+						</div>
+						<button type="submit" value="submit" class="btn btn-md btn-sm btn-default col-sm-offset-2"> Send massage </button>
+					</form>
+				</div>
 			</div>
 		</div>
 		<div class="sitefooter"></div>

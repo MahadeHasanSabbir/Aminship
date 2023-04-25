@@ -26,41 +26,49 @@
 			<div class="jumbotron">
 				<form class="form-horizontal" name="areacalculate" onsubmit="return calculate()" method="post">
 					<h4>East side:</h4>
-					<label class="control-label col-sm-1"> feet: </label>
-					<div class="col-sm-5">
-						<input type="number" min="0" name="east" class="form-control" id="e1" required="">
-					</div>
-					<label class="control-label col-sm-1">inch:</label>
-					<div class="col-sm-5">
-						<input type="number" min="0" max="12"  name="east" class="form-control" id="e2">
+					<div class="form-group">
+						<label class="control-label col-sm-1"> feet: </label>
+						<div class="col-sm-5">
+							<input type="number" min="0" name="east" class="form-control" id="e1" autofocus=""  required="">
+						</div>
+						<label class="control-label col-sm-1">inch:</label>
+						<div class="col-sm-5">
+							<input type="number" min="0" max="12"  name="east" class="form-control" id="e2">
+						</div>
 					</div>
 					<h4> West side:</h4>
-					<label class="control-label col-sm-1">feet:</label>
-					<div class="col-sm-5">
-						<input type="number" min="0" name="west" class="form-control" id="w1" required="">
-					</div>
-					<label class="control-label col-sm-1">inch:</label>
-					<div class="col-sm-5">
-						<input type="number" min="0" max="12"  name="west" class="form-control" id="w2">
+					<div class="form-group">
+						<label class="control-label col-sm-1">feet:</label>
+						<div class="col-sm-5">
+							<input type="number" min="0" name="west" class="form-control" id="w1" required="">
+						</div>
+						<label class="control-label col-sm-1">inch:</label>
+						<div class="col-sm-5">
+							<input type="number" min="0" max="12"  name="west" class="form-control" id="w2">
+						</div>
 					</div>
 					<h4> South side:</h4>
-					<label class="control-label col-sm-1">feet:</label>
-					<div class="col-sm-5">
-						<input type="number" min="0" name="south" class="form-control" id="s1" required="">
-					</div>
-					<label class="control-label col-sm-1">inch:</label>
-					<div class="col-sm-5">
-						<input type="number" min="0" max="12"  name="south" class="form-control" id="s2">
+					<div class="form-group">
+						<label class="control-label col-sm-1">feet:</label>
+						<div class="col-sm-5">
+							<input type="number" min="0" name="south" class="form-control" id="s1" required="">
+						</div>
+						<label class="control-label col-sm-1">inch:</label>
+						<div class="col-sm-5">
+							<input type="number" min="0" max="12"  name="south" class="form-control" id="s2">
+						</div>
 					</div>
 					<h4> North side:</h4>
-					<label class="control-label col-sm-1">feet:</label>
-					<div class="col-sm-5">
-						<input type="number" min="0" name="north" class="form-control" id="n1" required="">
-					</div>
-					<label class="control-label col-sm-1">inch:</label>
-					<div class="col-sm-5">
-						<input type="number" min="0" max="12" name="north" class="form-control" id="n2">
-					</div> <br/> <br/>
+					<div class="form-group">
+						<label class="control-label col-sm-1">feet:</label>
+						<div class="col-sm-5">
+							<input type="number" min="0" name="north" class="form-control" id="n1" required="">
+						</div>
+						<label class="control-label col-sm-1">inch:</label>
+						<div class="col-sm-5">
+							<input type="number" min="0" max="12" name="north" class="form-control" id="n2">
+						</div>
+					</div> <br/>
 					<button type="submit" value="submit" class="btn btn-md btn-default"> View area </button>
 					<button type="reset" value="reset" class="btn btn-md btn-default" onclick="document.getElementById('msg').style.display='none';" > Reset </button>
 				</form>
@@ -94,7 +102,7 @@
 				var size = area / 435.6;
 				
 				document.getElementById('msg').style.display="block";
-				document.getElementById('result').innerHTML="<strong> Your area is "+size.toFixed(2)+" cent or "+area.toFixed(3)+" square feet</strong>";
+				document.getElementById('result').innerHTML="<strong> Your area is "+size.toFixed(3)+" cent or "+area.toFixed(3)+" square feet</strong>";
 				return false;
 			}
 		</script>

@@ -8,30 +8,32 @@
 		<link rel="stylesheet" type="text/css" href="./style/css/bootstrap-theme.min.css">
 		<style>
 			body {padding-top:60px;background-color:darkseagreen;}
+			.jumbotron {margin-bottom:10px;}
+			.jumbotron p {margin-bottom:0px;}
 		</style>
 	</head>
 	<body>
 		<?php include 'header.php'; ?>
 		<div class="container-fluid" role="main">
 			<!--websiteinfo-->
-			<div class="jumbotron" style="margin-bottom:05px;">
-				<p> <strong> Welcome! </strong> We are here to help you calculating your land area and distribute your land as you want.
+			<div class="well" style="margin-bottom:05px; background-image:url(./style/pexels-rafa-de-30134402.jpg);background-size:cover;color:white;">
+				<div class="jumbotron" style="background-color:unset;">
+				<p class="text-center">
+					<strong> Welcome! </strong> We are here to help you calculating your land area and distribute your land as you want.
 				</p>
-			</div>
-			<!--measurement info-->
-			<div class="well" style="margin-bottom:05px;">
-				<blockquote class="bg-warning">
+				</div>
+				<blockquote class="bg-warning" style="color:black;">
 					<p>
-					Before starting the masurement we want to clear one thing, we will help you to calculate the area or find out a porsion of a land depanding on your input. We can not help you to mesure the size of a side in your land, it will be done by you.
+						Before starting the masurement we want to clear one thing, we will help you to calculate the area or find out a porsion of a land depanding on your input. We can not help you to mesure the size of a side in your land, it will be done by you.
 					</p>
 					<footer> From Aminship </footer>
 				</blockquote>
-				<p class="text-justify" >
+				<p class="text-justify">
 					When it come about land there is no actual size of it. Land could have many axis and those could be straight or curved. For the betterment of mesurement and error less area calculation we need to divide land into some geometric sheap. Land shape could be Triangle, Rectengle or Ellipes. It is not being a problem when you divide your land. Just calculate every divided shape individualy and sum them lastly for final result. We will help you to calculate the individual shape of land. Here is the process,
 				</p>
 			</div>
-			<div class="bg-info">
-				<ul class="list-group">
+			<div>
+				<ul class="list-group" style="margin-bottom:10px;">
 					<li class="list-group-item">
 						<h4 class="list-group-item-heading">
 							Triangle shape land measurement process
