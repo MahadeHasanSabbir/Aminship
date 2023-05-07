@@ -35,6 +35,17 @@
 						<a href='./delete.php' style="color:darkred;" class="btn btn-md bg-danger" onclick="return permit2()"> Delete ID </a>
 						<a href='./view.php' style="color:mediumblue;" class="btn btn-md bg-info"> Meserment history </a>
 					</div>
+					<?php
+					if(password_verify($_SESSION['id'], $row['password'])){
+						echo "<div class='alert alert-danger' style='margin-bottom:10px;'>
+								<span class='glyphicon glyphicon-alert'></span>
+								Change your password. It is default password!
+								<button type='button' class='close' data-dismiss='alert' area-label='close'>
+									<span area-hidden='true'> &times; </span>
+								</button>
+							</div>";
+					}
+					?>
 					<div class="jumbotron" style="display:grid;">
 						<div class="col-sm-12 mb">
 							<b class="col-sm-3 col-xs-5"> User ID </b>

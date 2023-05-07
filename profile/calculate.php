@@ -77,15 +77,21 @@
 							<div class="form-group">
 								<label class="control-label col-sm-2"> area (cent) : </label>
 								<div class="col-sm-4">
-									<input type="text" name="result" class="form-control" id="result1" readonly=""/>
+									<input type="text" name="result1" class="form-control" id="result1" readonly=""/>
 								</div>
 								<label class="control-label col-sm-2"> area (sq feet) : </label>
 								<div class="col-sm-4">
-									<input type="text" name="result2" class="form-control" id="result2" readonly=""/>
+									<input type="text" name="result" class="form-control" id="result2" readonly=""/>
 								</div>
 							</div>
 							<br/> <br/>
 							<button type="submit" value="submit" class="btn btn-md btn-default" onclick="return result()"> Save info </button>
+							<a type="submit" value="refresh" class="btn btn-md btn-default"
+							<?php
+								if($fourth != 0){echo 'href="area.php"';}
+								else if($third != 0){echo 'href="tarea.php"';}
+								else{echo 'href="sarea.php"';}
+							?>> Calculate again </a>
 						</form>
 					</div>
 				</div>
@@ -120,7 +126,7 @@
 						var size = area / 435.6;
 						
 						document.getElementById('result1').value = size.toFixed(3);
-						document.getElementById('result2').value = area.toFixed(3);
+						document.getElementById('result2').value = area.toFixed(2);
 						return false;
 					}
 					function result(){

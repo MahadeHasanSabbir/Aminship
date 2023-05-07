@@ -89,10 +89,10 @@
 				}
 				$pdf->Cell(0, 10, ' ', 0, 1, 'C');
 				$pdf->Cell(90, 10, 'Area of land: ',0, 0, 'R');
-				$pdf->Cell(40, 10, $row['size'], 0, 0, 'C');
+				$pdf->Cell(40, 10, round($row['size'] / 435.6, 3), 0, 0, 'C');
 				$pdf->Cell(55, 10, 'cent', 0, 1, 'L');
 				$pdf->Cell(90, 10, ' ', 0, 0, 'L');
-				$pdf->Cell(40, 10, round($row['size'] * 435.6, 3), 0, 0, 'C');
+				$pdf->Cell(40, 10, $row['size'], 0, 0, 'C');
 				$pdf->Cell(40, 10, 'Sq feet', 0, 1, 'L');
 			}
 			

@@ -16,7 +16,8 @@
 			mysqli_query($conect, $sql2);
 
 			//mehtod to redirect this page to another page
-			header("location:http://localhost/Aminship/auth/logout.php");
+			$_SESSION['error'] = "Your ID deleted!";
+			header("location:http://localhost/Aminship/auth/log.php");
 			exit;
 		}
 		else{

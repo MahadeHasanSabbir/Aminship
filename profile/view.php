@@ -54,13 +54,13 @@
 									<thead>
 										<tr>
 											<th> NO </th>
-											<th> 1st side </th>
-											<th> 2nd side </th>
-											<th> 3rd side </th>
-											<th> 4th side </th>
-											<th> Area of land </th>
-											<th class="col-md-2"> Download </th>
-											<th class="col-md-2"> Delete </th>
+											<th> 1st side (feet) </th>
+											<th> 2nd side (feet) </th>
+											<th> 3rd side (feet) </th>
+											<th> 4th side (feet) </th>
+											<th> Area of land (cent) </th>
+											<th class="col-md-2 text-center"> Download </th>
+											<th class="col-md-2 text-center"> Delete </th>
 										</tr>
 									</thead>
 									<tbody>
@@ -72,7 +72,7 @@
 											echo "<td>" . $row['second'] . "</td>";
 											echo "<td>" . $row['third'] . "</td>";
 											echo "<td>" . $row['fourth'] . "</td>";
-											echo "<td>" . $row['size'] . "</td>";
+											echo "<td>" . round($row['size']/435.6, 3) . "</td>";
 											echo "<td class='text-center'>
 												<a href='pdf.php?key=$row[UID]' onclick='drow()'>
 													<span class='glyphicon glyphicon-download-alt'></span> Download as pdf
