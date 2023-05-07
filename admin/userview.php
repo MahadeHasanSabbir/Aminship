@@ -52,14 +52,19 @@
 				</nav>
 				<div class="container">
 					<div class="page-header">
-						<h4 style="display:inline-block;" class="col-md-8"> Information of <?php echo $row["name"];?> </h4>
+						<h4 style="display:inline-block;" class="col-md-7"> Information of <?php echo $row["name"];?> </h4>
 						<a href='<?php echo "./profileupdate.php?id=$id";?>' style="color:brown;" class="btn btn-md bg-warning" onclick="return apermit1()"> Edit profile </a>
+						<a href='<?php echo "./userupdate.php?id=$id&pass=1";?>' style="color:darkred;" class="btn btn-md bg-danger" onclick="return apermit1()"> Reset password </a>
 						<a href='<?php echo "./delete.php?id=$id";?>' style="color:darkred;" class="btn btn-md bg-danger" onclick="return apermit2()"> Delete ID </a>
 						<a href='<?php echo "./view.php?id=$id";?>' style="color:mediumblue;" class="btn btn-md bg-info"> Meserment history </a>
 					</div>
 					<div class="jumbotron">
 						<?php
-							echo "<b class='col-sm-3'> User ID </b> <span class='col-sm-9'> : &nbsp", $row["ID"], "</span> </br>";
+							echo "<b class='col-sm-3'> User ID </b> <span class='col-sm-9'> : &nbsp", $row["ID"];
+							if($row['status'] == 1){
+								echo "  (active)";
+							}
+							echo "</span> </br>";
 							echo "<b class='col-sm-3'> Name </b> <span class='col-sm-9'> : &nbsp", $row["name"], "</span> </br>";
 							echo "<b class='col-sm-3'> Mobile </b> <span class='col-sm-9'> : &nbsp", $row["phone"], "</span> </br>";
 							echo "<b class='col-sm-3'> E-mail </b> <span class='col-sm-9'> : &nbsp", $row["mail"], "</span> </br>";

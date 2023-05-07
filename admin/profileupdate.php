@@ -51,9 +51,11 @@
 					</div>
 				</nav>
 				<div class="container" role="main">
-					<div class="page-header"> <h4> Information update form </h4> </div>
+					<div class="page-header">
+						<h4> Information update form for ID: <?php echo $row['ID']; ?></h4>
+					</div>
 					<div class="jumbotron">
-						<form <?php echo "action='userupdate.php?id=$row[ID]'";?> name="bgregform" onsubmit="return validate()" autocomplete="off" method="post">
+						<form <?php echo "action='userupdate.php?id=$row[ID]&pass=0'";?> name="bgregform" onsubmit="return validate()" autocomplete="off" method="post">
 							<label> Name :</label> <input type="text" name="name" class="form-control" id="name" value="<?php echo $row['name'];?>" required=""/> <br/>
 							<label> Mobile :</label> <input type="text" name="number" class="form-control" id="number" value="<?php echo $row['phone'];?>" required=""/> <br/>
 							<label> E-mail :</label> <input type="text" name="email" class="form-control" id="mail" value="<?php echo $row['mail'];?>" required=""/> <br/> <br/>
