@@ -1,3 +1,10 @@
+<?php
+	session_start();
+	if(isset($_SESSION['id']) or isset($_SESSION['aid'])){
+		header("location:http://localhost/Aminship/auth");
+		exit;
+	}
+?>
 <!DOCTYPE html>
 <html>
 	<head>
@@ -16,7 +23,7 @@
 		<?php include 'header.php'; ?>
 		<div class="container-fluid" role="main">
 			<!--websiteinfo-->
-			<div class="well" style="margin-bottom:05px; background-image:url(./style/pexels-rafa-de-30134402.jpg);background-size:cover;color:white;">
+			<div class="well" style="margin-bottom:05px; background-image:url(./style/pexels-rafa-de-30134402.jpg);background-size:cover;color:white;padding-top:05px;">
 				<div class="jumbotron" style="background-color:unset;">
 				<p class="text-center">
 					<strong> Welcome! </strong> We are here to help you calculating your land area and distribute your land as you want.

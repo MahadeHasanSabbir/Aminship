@@ -1,3 +1,10 @@
+<?php
+	session_start();
+	if(isset($_SESSION['id']) or isset($_SESSION['aid'])){
+		header("location:http://localhost/Aminship/auth");
+		exit;
+	}
+?>
 <!DOCTYPE html>
 <html>
 	<head>
@@ -14,7 +21,7 @@
 	<body>
 		<?php include 'header.php'; ?>
 		<div class="container-fluid">
-			<div class="page-header"> <h4> Side Calculator for Rectengle shape land </h4> </div>
+			<div class="page-header"> <h4> Find portion from Rectengle shape land </h4> </div>
 			<div id="msg" class="alert alert-info col-sm-12">
 				<span class="glyphicon glyphicon-info-sign"></span>
 				<span id="result"> </span>
@@ -50,7 +57,7 @@
 							<input type="text" name="area" class="form-control" id="a" required=""/>
 						</div>
 					</div> <br/>
-					<button type="submit" value="submit" class="btn btn-md btn-default" > Submit </button>
+					<button type="submit" value="submit" class="btn btn-md btn-default" > View length </button>
 					<button type="reset" value="reset" class="btn btn-md btn-default" onclick="document.getElementById('msg').style.display='none';"> Reset </button>
 				</form>
 			</div>
@@ -71,12 +78,12 @@
 				var knownside = (known + aknown)/2;
 				
 				var area = document.getElementById('a').value * 1;
-				var areapattern = /^[0-9\.]{1,6}$/;
+				var areapattern = /^[0-9]*\.[0-9]+|[0-9]+$/;
 				if(!areapattern.test(area)){
 					alert("Incorrect value for cent!");
 					return false;
 				}
-						
+				
 				var size = area * 435.6;
 				
 				var unknown = size / knownside;

@@ -1,3 +1,10 @@
+<?php
+	session_start();
+	if(isset($_SESSION['id']) or isset($_SESSION['aid'])){
+		header("location:http://localhost/Aminship/auth");
+		exit;
+	}
+?>
 <!DOCTYPE html>
 <html>
 	<head>
