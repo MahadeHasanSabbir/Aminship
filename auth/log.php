@@ -92,6 +92,7 @@
 				if(!isset($_GET['id'])){
 				?>
 					<div class="text-center"> Don't have any account? <a class="btn btn-md btn-link" href="http://localhost/aminship/auth/register.php" > Register </a>
+					<div class="text-center"> Forget your password? <a class="btn btn-md btn-link" href="mailto:info.pass@aminship.com" > mail us </a>
 					</div>
 				<?php
 				}
@@ -108,7 +109,7 @@
 				var pass = document.getElementById('pass').value;
 				
 				var sampleid = /^[0-9]{9}$/i;
-				var samplepass = /^[A-Za-z0-9\@\#\$\%\&]{4,8}$/i;
+				var samplepass = /^[A-Za-z0-9\@\#\$\%\&]{4,9}$/i;
 				
 				if(!sampleid.test(id)){
 					alert("!Invalide ID");

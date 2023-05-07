@@ -21,13 +21,34 @@
 		<?php include 'header.php'; ?>
 		<div class="container-fluid">
 			<div class="jumbotron">
-				<h2> Registration form </h2>
-				<form action="action.php" name="regform" onsubmit="return validate()" autocomplete="off" method="post">
-					<label> Name </label>:  <input type="text" name="name" class="form-control" id="name" placeholder="Enter your name." required="" autofocus /><br/>
-					<label> Mobile </label>:  <input type="text" name="number" class="form-control" id="number" placeholder="+8801........." title="It is mandatory to use +88 before your number" required=""/> <br/>
-					<label> E-mail </label>:  <input type="text" name="email" class="form-control" id="mail" placeholder="Enter a valid email." required=""/> <br/>
-					<label> Password </label>:  <input type="password" name="password" class="form-control" id="pass" placeholder="Creat a password in 4 to 8 character" title="alphanumaric and @,#,$,%,& are allow" required=""/> <br/>
-					<button type="Submit" value="Submit" class="btn btn-md btn-default"> Register </button>
+				<h2 class="col-sm-offset-1"> Registration form </h2> <br/>
+				<form class="form-horizontal" action="action.php" name="regform" onsubmit="return validate()" autocomplete="off" method="post">
+					<div class="form-group">
+						<label class="control-label col-sm-2"> Name :</label>
+						<div class="col-sm-9">
+							<input type="text" name="name" class="form-control" id="name" placeholder="Enter your name." required="" autofocus />
+						</div>
+					</div>
+					<div class="form-group">
+						<label class="control-label col-sm-2"> Mobile :</label>
+						<div class="col-sm-9">
+							<input type="text" name="number" class="form-control" id="number" placeholder="+8801........." title="It is mandatory to use +88 before your number" required=""/>
+						</div>
+					</div>
+					<div class="form-group">
+						<label class="control-label col-sm-2"> E-mail :</label>
+						<div class="col-sm-9">
+							<input type="text" name="email" class="form-control" id="mail" placeholder="Enter a valid email." required=""/>
+						</div>
+					</div>
+					<div class="form-group">
+						<label class="control-label col-sm-2"> Password :</label>
+						<div class="col-sm-9">
+							<input type="password" name="password" class="form-control" id="pass" placeholder="Creat a password in 4 to 8 character" title="alphanumaric and @,#,$,%,& are allow" required=""/>
+						</div>
+					</div>
+					<br/>
+					<button type="Submit" value="Submit" class="btn btn-md col-sm-offset-1 btn-default"> Register </button>
 					<button type="Reset" value="Reset" class="btn btn-md btn-default"> Reset </button> <br/>
 				</form>
 			</div>

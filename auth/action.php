@@ -44,7 +44,7 @@
 		`second` VARCHAR(6) CHARACTER SET utf8 COLLATE utf8_general_ci NOT NULL ,
 		`third` VARCHAR(6) CHARACTER SET utf8 COLLATE utf8_general_ci NOT NULL DEFAULT '000' ,
 		`fourth` VARCHAR(6) CHARACTER SET utf8 COLLATE utf8_general_ci NOT NULL DEFAULT '000' ,
-		`size` VARCHAR(6) CHARACTER SET utf8 COLLATE utf8_general_ci NOT NULL ,
+		`size` VARCHAR(8) CHARACTER SET utf8 COLLATE utf8_general_ci NOT NULL ,
 		PRIMARY KEY (`UID`)) ENGINE = InnoDB;";
 
 		//method for upload data to database
