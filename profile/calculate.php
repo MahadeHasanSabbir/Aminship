@@ -1,9 +1,6 @@
 <?php
 	session_start();
 	if(isset($_SESSION['id'])){
-		//create connection with database
-		$conect = mysqli_connect("localhost","root","","aminship");
-		
 		//local variable
 		$first1 = $_POST['1st1'];
 		$first2 = 0;

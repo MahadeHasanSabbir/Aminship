@@ -1,16 +1,13 @@
 -- phpMyAdmin SQL Dump
--- version 4.8.5
+-- version 5.2.1
 -- https://www.phpmyadmin.net/
 --
--- Host: 127.0.0.1
--- Generation Time: Apr 01, 2023 at 10:30 AM
--- Server version: 10.1.38-MariaDB
--- PHP Version: 7.3.2
+-- Server version: 10.4.32-MariaDB
+-- PHP Version: 8.2.12
 
 SET SQL_MODE = "NO_AUTO_VALUE_ON_ZERO";
-SET AUTOCOMMIT = 0;
 START TRANSACTION;
-SET time_zone = "+06:00";
+SET time_zone = "+00:00";
 
 
 /*!40101 SET @OLD_CHARACTER_SET_CLIENT=@@CHARACTER_SET_CLIENT */;
@@ -36,18 +33,27 @@ CREATE TABLE `admin` (
   `passlast` date NOT NULL,
   `users` varchar(3) NOT NULL DEFAULT '000',
   `lastlog` date NOT NULL DEFAULT '0000-00-00'
-) ENGINE=InnoDB DEFAULT CHARSET=utf8;
-
---
--- RELATIONSHIPS FOR TABLE `admin`:
---
+) ENGINE=InnoDB DEFAULT CHARSET=utf8 COLLATE=utf8_general_ci;
 
 --
 -- Dumping data for table `admin`
 --
 
 INSERT INTO `admin` (`ID`, `password`, `passlast`, `users`, `lastlog`) VALUES
-('admin', '$2y$10$/G8MuyqahTEGunkzV9zHY.R8PSNgXIF93f3B3Bq1JaZzd5KC/v34K', '2022-12-30', '000', '0000-00-00');
+('admin', '$2y$10$/G8MuyqahTEGunkzV9zHY.R8PSNgXIF93f3B3Bq1JaZzd5KC/v34K', '0000-00-00', '000', '0000-00-00');
+
+-- --------------------------------------------------------
+
+--
+-- Table structure for table `massage`
+--
+
+CREATE TABLE `massage` (
+  `name` varchar(40) NOT NULL,
+  `email` varchar(50) NOT NULL,
+  `text` varchar(2000) NOT NULL,
+  `time` timestamp NOT NULL DEFAULT current_timestamp() ON UPDATE current_timestamp()
+) ENGINE=InnoDB DEFAULT CHARSET=utf8 COLLATE=utf8_general_ci;
 
 -- --------------------------------------------------------
 
@@ -63,11 +69,7 @@ CREATE TABLE `user` (
   `phone` varchar(14) NOT NULL,
   `measure` varchar(3) NOT NULL DEFAULT '000',
   `lastlog` date NOT NULL DEFAULT '0000-00-00'
-) ENGINE=InnoDB DEFAULT CHARSET=utf8;
-
---
--- RELATIONSHIPS FOR TABLE `user`:
---
+) ENGINE=InnoDB DEFAULT CHARSET=utf8 COLLATE=utf8_general_ci;
 
 -- --------------------------------------------------------
 
@@ -78,11 +80,7 @@ CREATE TABLE `user` (
 CREATE TABLE `visitors` (
   `time` varchar(20) NOT NULL,
   `ip` varchar(15) NOT NULL
-) ENGINE=InnoDB DEFAULT CHARSET=utf8;
-
---
--- RELATIONSHIPS FOR TABLE `visitors`:
---
+) ENGINE=InnoDB DEFAULT CHARSET=utf8 COLLATE=utf8_general_ci;
 
 --
 -- Indexes for dumped tables
@@ -93,6 +91,12 @@ CREATE TABLE `visitors` (
 --
 ALTER TABLE `admin`
   ADD PRIMARY KEY (`ID`);
+
+--
+-- Indexes for table `massage`
+--
+ALTER TABLE `massage`
+  ADD PRIMARY KEY (`time`);
 
 --
 -- Indexes for table `user`

@@ -11,7 +11,7 @@
 		mysqli_query($conect, $sql);
 
 		$_SESSION['success'] = "Log out successfull";
-	
+		mysqli_close($conect);
 		header("location:http://localhost/Aminship/admin");
 		exit;
 	}

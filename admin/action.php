@@ -24,6 +24,7 @@
 			mysqli_query($conect, $sqlquery);
 			
 			$_SESSION['aid'] = $id;
+			mysqli_close($conect);
 			//mehtod to redirect this page to another page
 			header("location:http://localhost/Aminship/admin/adminprofile.php");
 		}
@@ -39,6 +40,7 @@
 			mysqli_query($conect, $sqlquery);
 			
 			$_SESSION['aid'] = $id;
+			mysqli_close($conect);
 			//mehtod to redirect this page to another page
 			header("location:http://localhost/Aminship/admin/adminprofile.php");
 		}

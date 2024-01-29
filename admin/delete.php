@@ -1,9 +1,9 @@
 <?php
 	session_start();
 	if(isset($_SESSION['aid'])){
+		//create connection with database
+		$conect = mysqli_connect("localhost","root","","aminship");
 		if(isset($_GET['id']) && !isset($_GET['key'])){
-			//create connection with database
-			$conect = mysqli_connect("localhost","root","","aminship");
 
 			$table = "user"."$_GET[id]";
 
@@ -20,9 +20,6 @@
 			exit;
 		}
 		else if(isset($_GET['id']) && isset($_GET['key'])){
-			//create connection with database
-			$conect = mysqli_connect("localhost","root","","aminship");
-
 			$table = "user"."$_GET[id]";
 
 			//sql query
@@ -38,24 +35,23 @@
 			$date = new DateTime();
 			$today = $date -> format('Y-m-j');
 			
-			//create connection with database
-			$conect = mysqli_connect("localhost","root","","aminship");
-			
 			$dquery = "DELETE FROM visitors WHERE time LIKE '$today%'";
-			echo $dquery;
 			mysqli_query($conect, $dquery);
 			
 			header("location:http://localhost/aminship/admin/adminprofile.php");
 			exit;
 		}
 		else if(isset($_GET['dd']) && $_GET['dd'] == 1){
-			//create connection with database
-			$conect = mysqli_connect("localhost","root","","aminship");
-			
 			$dquery = "DELETE FROM visitors";
 			mysqli_query($conect, $dquery);
-			echo $dquery;
 			header("location:http://localhost/aminship/admin/adminprofile.php");
+			exit;
+		}
+		else if(isset($_GET['dm'])){
+			$dquery = "DELETE FROM massage WHERE massage.time = '$_GET[dm]'";
+			mysqli_query($conect, $dquery);
+			echo $dquery;
+			header("location:http://localhost/aminship/admin/massage.php");
 			exit;
 		}
 		else{

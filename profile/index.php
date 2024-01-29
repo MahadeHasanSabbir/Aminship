@@ -81,6 +81,7 @@
 			</body>
 		</html>
 <?php
+	mysqli_close($conect);
 	}
 	else{
 		$_SESSION['error'] = 'Request failed';

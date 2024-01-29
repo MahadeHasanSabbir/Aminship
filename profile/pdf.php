@@ -98,6 +98,7 @@
 			
 			// Output the PDF
 			$pdf->Output($uid.$pid.'.pdf', 'I');
+			mysqli_close($connect);
 		}
 		//mehtod to redirect this page to another page
 		header("location:http://localhost/Aminship/profile/view.php");

@@ -53,7 +53,7 @@
 		mysqli_query($conect, $sqlquery3);
 		
 		//mail to donor
-		
+		mysqli_close($conect);
 		//mehtod to redirect this page to another page
 		header("location:http://localhost/aminship/auth/log.php?id=$id");
 	}

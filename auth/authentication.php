@@ -26,22 +26,26 @@
 			if(password_verify($password, $row['password'])) {
 				// Login successful
 				$_SESSION['id'] = $id;
+				mysqli_close($con);
 				header('location: http://localhost/Aminship/profile/');
 				exit;
 			} else {
 				// Login failed - incorrect password
 				$_SESSION['error'] = 'Incorrect password';
+				mysqli_close($con);
 				header('location: http://localhost/Aminship/auth/log.php');
 				exit;
 			}
 		} else {
 			// Login failed - user not found
 			$_SESSION['error'] = 'User not found';
+			mysqli_close($con);
 			header('location: http://localhost/Aminship/auth/log.php');
 			exit;
 		}
 	} else {
 		// Login failed - request failed
+		mysqli_close($con);
 		header('location: http://localhost/Aminship/auth');
 		exit;
 	}

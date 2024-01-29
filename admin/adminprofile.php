@@ -26,28 +26,7 @@
 				</style>
 			</head>
 			<body>
-				<nav class="navbar navbar-default navbar-fixed-top">
-					<div class="container">
-						<div class="navbar-header">
-							<button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#navbar" aria-expanded="false" aria-controls="navbar">
-								<span class="sr-only">Toggle navigation</span>
-								<span class="icon-bar"></span>
-								<span class="icon-bar"></span>
-								<span class="icon-bar"></span>
-							</button>
-						<a class="navbar-brand" href="./adminprofile.php">Aminship / Admin </a>
-						</div>
-						<div id="navbar" class="navbar-collapse collapse">
-							<ul class="nav navbar-nav">
-								<li class="active"> <a href="./adminprofile.php"> Dashboard </a> </li>
-								<li onclick="return apermit()"> <a href="./users.php"> View users </a> </li>
-							</ul>
-							<ul class="nav navbar-nav navbar-right">
-								<li onclick="return permit()"> <a href="http://localhost/Aminship/admin/logout.php">Log out</a> </li>
-							</ul>
-						</div>
-					</div>
-				</nav>
+				<?php include 'header.php';?>
 				<div class="container">
 					<?php
 						$date = new DateTime();
@@ -64,7 +43,13 @@
 						echo "<div class='jumbotron' style='margin-bottom:10px;'>";
 						echo "<b class='col-sm-3 col-xs-4'> Admin </b> <span class='col-sm-9'> : &nbsp", $row["ID"], "</span></br>";
 						echo "<b class='col-sm-3 col-xs-4'> Last password change </b> <span class='col-sm-9'> : &nbsp", $row["passlast"], "</span></br>";
-						echo "<b class='col-sm-3 col-xs-4'> Last time log-in </b> <span class='col-sm-9'> : &nbsp",round((strtotime($today) - strtotime($row['lastlog']))/60/60/24), " day ago </span></br>";
+						echo "<b class='col-sm-3 col-xs-4'> Last time log-in </b> <span class='col-sm-9'> : &nbsp";
+						if($row['lastlog'] == '0000-00-00'){
+							echo "N/A </span> </br>";
+						}
+						else{
+							echo round((strtotime($today) - strtotime($row['lastlog']))/60/60/24), " day ago </span> </br>";
+						}
 						echo "<hr/>";
 					?>
 					<a href="./adminprofileupdate.php" class="btn btn-md btn-sm btn-warning" onclick="return permit1()"> Edit info </a>
@@ -190,6 +175,7 @@
 			</body>
 		</html>
 <?php
+	mysqli_close($conect);
 	}
 	else{
 		$_SESSION['error'] = 'Request failed';

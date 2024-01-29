@@ -2,11 +2,11 @@
 	// Start the session
 	session_start();
 
-	// Connect to the database
-	$con = mysqli_connect("localhost", "root", "", "aminship");
-	
 	// Check if the form was submitted
 	if(isset($_POST['id']) && isset($_POST['password'])) {
+		// Connect to the database
+		$con = mysqli_connect("localhost", "root", "", "aminship");
+		
 		// Get the user-entered information
 		$id = mysqli_real_escape_string($con, $_POST['id']);
 		$password = mysqli_real_escape_string($con, $_POST['password']);
@@ -26,17 +26,20 @@
 			if(password_verify($password, $row['password'])) {
 				// Login successful
 				$_SESSION['aid'] = $id;
+				mysqli_close($con);
 				header('location: http://localhost/Aminship/admin/adminprofile.php');
 				exit;
 			} else {
 				// Login failed - incorrect password
 				$_SESSION['error'] = 'Incorrect password';
+				mysqli_close($con);
 				header('location: http://localhost/Aminship/admin/');
 				exit;
 			}
 		} else {
 			// Login failed - user not found
 			$_SESSION['error'] = 'User not found';
+			mysqli_close($con);
 			header('location: http://localhost/Aminship/admin/');
 			exit;
 		}

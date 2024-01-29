@@ -133,5 +133,6 @@
 		$sql = "INSERT INTO visitors (time, ip) VALUES ('$time', '$ip')";
 		
 		mysqli_query($conect, $sql);
+		mysqli_close($conect);
 	}
 ?>

@@ -4,6 +4,8 @@
 		header("location:http://localhost/Aminship/auth");
 		exit;
 	}
+	//create connection with database
+	$connect = mysqli_connect("localhost", "root", "", "aminship");
 ?>
 <!DOCTYPE html>
 <html>
@@ -123,7 +125,34 @@
 				</div>
 				<div class="col-md-6">
 					<h4 class="text-center" style="padding-bottom:10px;"> Massage with us</h4>
-					<form class="form-horizontal" name="contact" method="post" onsubmit="return givealert()">
+					<div>
+						<?php
+							if(isset($_POST['name'])){
+								//local variable
+								$name = $_POST['name'];
+								$email = $_POST['email'];
+								$text = $_POST['text'];
+								
+								//sql query for upload data to database
+								$sqlquery = "INSERT INTO massage (name, email, text) VALUES ('$name', '$email', '$text')";
+								
+								//method for upload data to database
+								mysqli_query($connect, $sqlquery);
+								
+								//success massage
+						?>
+								<div class='alert alert-success'>
+									<span class='glyphicon glyphicon-info-sign'></span>
+									Your massage send successfully. We will contact you within a day.
+									<button type='button' class='close' data-dismiss='alert' area-label='close'>
+										<span area-hidden='true'> &times; </span>
+									</button>
+								</div>
+						<?php
+							}
+						?>
+					</div>
+					<form class="form-horizontal" name="contact" method="post">
 						<div class="form-group">
 							<label class="control-label col-sm-2"> Name:</label>
 							<div class="col-sm-10">
@@ -159,9 +188,9 @@
 		$date = new DateTime();
 		$time = $date -> format('Y-m-j:H:i:s');
 		
-		$connect = mysqli_connect("localhost", "root", "", "aminship");
 		$sql = "INSERT INTO visitors (time, ip) VALUES ('$time', '$ip')";
 		
 		mysqli_query($connect, $sql);
+		mysqli_close($connect);
 	}
 ?>

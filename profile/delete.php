@@ -1,10 +1,10 @@
 <?php
 	session_start();
 	if(isset($_SESSION['id'])){
+		//create connection with database
+		$conect = mysqli_connect("localhost","root","","aminship");
+
 		if(!isset($_GET['key'])){
-			//create connection with database
-			$conect = mysqli_connect("localhost","root","","aminship");
-			
 			$table = "user"."$_SESSION[id]";
 			
 			//sql query
@@ -17,13 +17,11 @@
 
 			//mehtod to redirect this page to another page
 			$_SESSION['error'] = "Your ID deleted!";
+			mysqli_close($conect);
 			header("location:http://localhost/Aminship/auth/log.php");
 			exit;
 		}
 		else{
-			//create connection with database
-			$conect = mysqli_connect("localhost","root","","aminship");
-			
 			$table = "user"."$_SESSION[id]";
 			
 			//sql query
@@ -31,7 +29,7 @@
 
 			//take data from database
 			mysqli_query($conect, $sql);
-			
+			mysqli_close($conect);
 			header("location:http://localhost/aminship/profile/view.php");
 			exit;
 		}

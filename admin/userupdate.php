@@ -28,6 +28,7 @@
 			mysqli_query($conect, $sql);
 		}
 		//mehtod to redirect this page to another page
+		mysqli_close($conect);
 		header("location:http://localhost/Aminship/admin/userview.php?key=$id");
 		exit;
 	}

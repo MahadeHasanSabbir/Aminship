@@ -1,7 +1,7 @@
 <?php
 	session_start();
 	if(isset($_SESSION['aid'])){
-		if(isset($_GET['key']) && isset($_GET['key'])){
+		if(isset($_GET['key']) && isset($_GET['id'])){
 			$connect = mysqli_connect('localhost','root','','aminship');
 			$uid = $_GET['id'];
 			$table = "user"."$uid";
@@ -114,6 +114,7 @@
 			$pdf->Output($uid.$pid.'.pdf', 'I');
 		}
 		//mehtod to redirect this page to another page
+		mysqli_close($connect);
 		header("location:http://localhost/Aminship/profile/view.php");
 		exit;
 	}

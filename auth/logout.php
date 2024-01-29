@@ -13,6 +13,7 @@
 		//log out massage
 		$_SESSION['success'] = "Log out successfull";
 		//redirect to login page
+		mysqli_close($conect);
 		header("location:http://localhost/Aminship/auth/log.php");
 		exit;
 	}
