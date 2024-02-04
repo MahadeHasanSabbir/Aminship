@@ -18,7 +18,7 @@
 			<head>
 				<meta charset="UTF-8"/>
 				<meta name="viewport" content="width=device-width, initial-scale=1.0"/>
-				<title> Admin panel </title>
+				<title> Massages from user </title>
 				<link rel="stylesheet" type="text/css" href="http://localhost/Aminship/style/css/bootstrap.min.css">
 				<link rel="stylesheet" type="text/css" href="http://localhost/Aminship/style/css/bootstrap-theme.min.css">
 				<style>
@@ -28,6 +28,7 @@
 			<body>
 				<?php include 'header.php';?>
 				<div class="container">
+					<div class="jumbotron" style="display:inline-block;">
                     <?php    
                     if($row){
                         do{
@@ -53,9 +54,10 @@
                         }while($row = mysqli_fetch_assoc($data));
                     }
                     else{
-                        echo "<h3> You don't have any massage from user. </h3>";
+                        echo "<h3 class='text-center'> You don't have any massage from user. </h3>";
                     }
 					?>
+					</div>
 				</div>
 				<div class="footer"></div>
 				<script src="http://localhost/Aminship/style/js/jquery.min.js"></script>

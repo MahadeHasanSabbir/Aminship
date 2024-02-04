@@ -18,7 +18,7 @@
 		//convert 2D array to 1D array
 		$row = mysqli_fetch_assoc($data);
 		
-		//create a uniqe id for donner
+		//create a uniqe id for user
 		$date = new DateTime();
 		$id1 = $date -> format('ym');
 		$id2 = $date -> format('j');
@@ -39,7 +39,7 @@
 		$sqlquery1 = "INSERT INTO user (ID, name, password, mail, phone, measure) VALUES ('$id', '$name', '$password', '$email', '$number', '000')";
 		$sqlquery2 = "UPDATE admin SET users = '$id3' WHERE ID = '$row[ID]'";
 		$sqlquery3 = "CREATE TABLE `aminship`.`$table` ( 
-		`UID` VARCHAR(9) CHARACTER SET utf8 COLLATE utf8_general_ci NOT NULL ,
+		`UID` VARCHAR(5) CHARACTER SET utf8 COLLATE utf8_general_ci NOT NULL ,
 		`first` VARCHAR(6) CHARACTER SET utf8 COLLATE utf8_general_ci NOT NULL ,
 		`second` VARCHAR(6) CHARACTER SET utf8 COLLATE utf8_general_ci NOT NULL ,
 		`third` VARCHAR(6) CHARACTER SET utf8 COLLATE utf8_general_ci NOT NULL DEFAULT '000' ,

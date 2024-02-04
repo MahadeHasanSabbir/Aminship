@@ -20,11 +20,13 @@
 		//convert 2D array to 1D array
 		$row = mysqli_fetch_assoc($data);
 		
-		//create a uniqe id for donner
+		//create a uniqe id for measurement
 		$id = $row['measure'] + 1;
 		if($id < 10){
-			$id = "00$id";
+			$id = "000$id";
 		}else if($id < 100){
+			$id = "00$id";
+		}else if($id < 1000){
 			$id = "0$id";
 		}
 
