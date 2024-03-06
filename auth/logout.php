@@ -7,7 +7,7 @@
 		$date = new DateTime();
 		$time = $date -> format('Y-m-j');
 		//sql for update logout time
-		$sql = "UPDATE user SET lastlog = '$time' WHERE user.ID = '$_SESSION[id]';";
+		$sql = "UPDATE user SET lastlog = '$time', status = '0' WHERE user.ID = '$_SESSION[id]';";
 		//execute sql command
 		mysqli_query($conect, $sql);
 		//log out massage

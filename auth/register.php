@@ -10,9 +10,9 @@
 	<head>
 		<meta charset="UTF-8"/>
 		<meta name="viewport" content="width=device-width, initial-scale=1.0"/>
-		<title> Registrartion Form | Aminship(working with your land) </title>
-		<link rel="stylesheet" type="text/css" href="http://localhost/Aminship/style/css/bootstrap.min.css">
-		<link rel="stylesheet" type="text/css" href="http://localhost/Aminship/style/css/bootstrap-theme.min.css">
+		<title> Registration Form | Aminship (working with your land) </title>
+		<link rel="stylesheet" type="text/css" href="../style/css/bootstrap.min.css">
+		<link rel="stylesheet" type="text/css" href="../style/css/bootstrap-theme.min.css">
 		<style>
 			body {padding-top:60px;background-color:darkseagreen;}
 		</style>
@@ -44,7 +44,7 @@
 					<div class="form-group">
 						<label class="control-label col-sm-2"> Password :</label>
 						<div class="col-sm-9">
-							<input type="password" name="password" class="form-control" id="pass" placeholder="Creat a password in 4 to 8 character" title="alphanumaric and @,#,$,%,& are allow" required=""/>
+							<input type="password" name="password" class="form-control" id="pass" placeholder="Create a password in 4 to 8 character" title="alphanumeric and @,#,$,%,& are allow" required=""/>
 						</div>
 					</div>
 					<br/>
@@ -54,12 +54,12 @@
 			</div>
 		</div>
 		<div id="content_footer"></div>
-		<script src="http://localhost/Aminship/style/js/jquery.min.js"></script>
-		<script src="http://localhost/Aminship/style/js/bootstrap.min.js"></script>
-		<script src="http://localhost/Aminship/style/js/jscript.js"></script>
+		<script src="../style/js/jquery.min.js"></script>
+		<script src="../style/js/bootstrap.min.js"></script>
+		<script src="../style/js/jscript.js"></script>
 		<script>
 			function validate(){
-				//Reguler Expressions
+				//Regular Expressions
 				var namepattern = /^[A-Za-z \.]{3,35}$/i;
 				var numberpattern = /^\+88[0-9]{11}$/;
 				var emailpattern = /^[a-zA-Z0-9]+[a-zA-Z0-9_.-]+[a-zA-Z0-9_-]+@[a-zA-Z0-9]+[a-zA-Z0-9.-]+[a-zA-Z0-9]+.[a-z]{2,4}$/;
@@ -89,7 +89,7 @@
 					return false;
 				}
 				else{
-					if(confirm("Thank you, " + namevalue + ". Registrartion form fillup!\nRemember Your password for future use.\nClick ok to proceid")){
+					if(confirm("Thank you, " + namevalue + ". Registration form fill-up!\nRemember Your password for future use.\nClick ok to proceed")){
 						return true;
 					}else{
 						return false;

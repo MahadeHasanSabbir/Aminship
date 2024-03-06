@@ -2,7 +2,7 @@
 	session_start();
 	if(isset($_SESSION['aid'])){
 		//create connection with database
-		$conect = mysqli_connect("localhost","root","","aminship");
+		$connect = mysqli_connect("localhost","root","","aminship");
 
 		$table = "user"."$_GET[id]";
 
@@ -10,16 +10,16 @@
 		$sqlquery = "SELECT * FROM $table";
 
 		//take data from database
-		$data1 = mysqli_query($conect, $sqlquery);
+		$data1 = mysqli_query($connect, $sqlquery);
 ?>
 		<!DOCTYPE html>
 		<html>
 			<head>
 				<meta charset="UTF-8"/>
 				<meta name="viewport" content="width=device-width, initial-scale=1.0"/>
-				<title> All saved meserment information page </title>
-				<link rel="stylesheet" type="text/css" href="http://localhost/Aminship/style/css/bootstrap.min.css" />
-				<link rel="stylesheet" type="text/css" href="http://localhost/Aminship/style/css/bootstrap-theme.min.css" />
+				<title> All saved measurement information page </title>
+				<link rel="stylesheet" type="text/css" href="../style/css/bootstrap.min.css" />
+				<link rel="stylesheet" type="text/css" href="../style/css/bootstrap-theme.min.css" />
 				<style>
 					body {padding-top:60px;background-color:darkseagreen;}
 					.center {display:grid;justify-content:center;}
@@ -31,14 +31,14 @@
 				<div class="container">
 					<ul class="breadcrumb" style="margin-bottom:10px;">
 						<li> <a href='<?php echo "./userview.php?key=$_GET[id]";?>'> User profile </a> </li>
-						<li class="active"> Saved meserment </li>
+						<li class="active"> Saved measurement </li>
 					</ul>
 					<?php
 						$row1=mysqli_fetch_assoc($data1);
 						if(isset($row1) && $row1 != null){
 							$items_per_page = 10;
 							$total_items_query = "SELECT COUNT(*) as total FROM $table";
-							$total_items_result = mysqli_query($conect, $total_items_query);
+							$total_items_result = mysqli_query($connect, $total_items_query);
 							$total_items = mysqli_fetch_assoc($total_items_result);
 							$total_pages = ceil($total_items['total'] / $items_per_page);
 							
@@ -47,12 +47,12 @@
 							$offset = ($page - 1) * $items_per_page;
 
 							$query = "SELECT * FROM $table LIMIT $offset, $items_per_page";
-							$data = mysqli_query($conect, $query);
+							$data = mysqli_query($connect, $query);
 
 					?>
 							<div class="well" style="margin-bottom:0px;">
 								<table class="table table-bordered">
-									<caption style="text-align:center;padding-top0px;"> <h4> All saved meserment </h4> </caption>
+									<caption style="text-align:center;padding-top0px;"> <h4> All saved measurement </h4> </caption>
 									<thead>
 										<tr>
 											<th> NO </th>
@@ -105,20 +105,20 @@
 							echo "</div>";
 						}
 						else{
-							echo "<div class='jumbotron'> <h4 class='text-center'> User don't save any meserment yet! </h4> <br/> </div>";
+							echo "<div class='jumbotron'> <h4 class='text-center'> User don't save any measurement yet! </h4> <br/> </div>";
 							$sql = "UPDATE user SET measure = '000' WHERE user.ID = '$_GET[id]'";
-							mysqli_query($conect, $sql);
+							mysqli_query($connect, $sql);
 						}
 					?>
 				</div>
 				<div id="content_footer"></div>
-				<script src="http://localhost/Aminship/style/js/jquery.min.js"></script>
-				<script src="http://localhost/Aminship/style/js/bootstrap.min.js"></script>
-				<script src="http://localhost/Aminship/style/js/jscript.js"></script>
+				<script src="../style/js/jquery.min.js"></script>
+				<script src="../style/js/bootstrap.min.js"></script>
+				<script src="../style/js/jscript.js"></script>
 			</body>
 		</html>
 <?php
-	mysqli_close($conect);
+	mysqli_close($connect);
 	}
 	else{
 		$_SESSION['error'] = 'Request failed';

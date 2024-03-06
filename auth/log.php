@@ -4,7 +4,7 @@
 		header("location:http://localhost/Aminship/admin");
 		exit;
 	}
-	$conect = mysqli_connect("localhost","root","","aminship");
+	$connect = mysqli_connect("localhost","root","","aminship");
 ?>
 <!DOCTYPE html>
 <html>
@@ -12,8 +12,8 @@
 		<meta charset="UTF-8"/>
 		<meta name="viewport" content="width=device-width, initial-scale=1.0"/>
 		<title> Login page | Aminship (working with your land) </title>
-		<link rel="stylesheet" type="text/css" href="http://localhost/Aminship/style/css/bootstrap.min.css">
-		<link rel="stylesheet" type="text/css" href="http://localhost/Aminship/style/css/bootstrap-theme.min.css">
+		<link rel="stylesheet" type="text/css" href="../style/css/bootstrap.min.css">
+		<link rel="stylesheet" type="text/css" href="../style/css/bootstrap-theme.min.css">
 		<style>
 			body {padding-top:80px;background-color:darkseagreen;}
 			.justify {display:grid;justify-content:center;text-align:center;}
@@ -66,7 +66,7 @@
 							$sqlquery = "SELECT * FROM user WHERE ID = '$_GET[id]'";
 
 							//take data from database
-							$data = mysqli_query($conect, $sqlquery);
+							$data = mysqli_query($connect, $sqlquery);
 
 							//convert 2D array to 1D array
 							$row = mysqli_fetch_array($data);
@@ -91,7 +91,7 @@
 				<?php
 				if(!isset($_GET['id'])){
 				?>
-					<div class="text-center"> Don't have any account? <a class="btn btn-md btn-link" href="http://localhost/aminship/auth/register.php" > Register </a>
+					<div class="text-center"> Don't have any account? <a class="btn btn-md btn-link" href="./register.php" > Register </a>
 					<div class="text-center"> Forget your password? <a class="btn btn-md btn-link" href="mailto:info.pass@aminship.com" > mail us </a>
 					</div>
 				<?php
@@ -100,9 +100,9 @@
 			</div>
 		</div>
 		<div class="sitefooter"></div>
-		<script src="http://localhost/Aminship/style/js/jquery.min.js"></script>
-		<script src="http://localhost/Aminship/style/js/bootstrap.min.js"></script>
-		<script src="http://localhost/Aminship/style/js/jscript.js"></script>
+		<script src="../style/js/jquery.min.js"></script>
+		<script src="../style/js/bootstrap.min.js"></script>
+		<script src="../style/js/jscript.js"></script>
 		<script>
 			function valid(){
 				var id = document.getElementById('id').value;
@@ -132,7 +132,7 @@
 		
 		$sql = "INSERT INTO visitors (time, ip) VALUES ('$time', '$ip')";
 		
-		mysqli_query($conect, $sql);
-		mysqli_close($conect);
+		mysqli_query($connect, $sql);
+		mysqli_close($connect);
 	}
 ?>

@@ -2,7 +2,7 @@
 	session_start();
 	if(isset($_SESSION['id'])){
 		//create connection with database
-		$conect = mysqli_connect("localhost","root","","aminship");
+		$connect = mysqli_connect("localhost","root","","aminship");
 		
 		//local variable
 		$first = $_POST['1st'];
@@ -15,12 +15,12 @@
 		$sqlquery = "SELECT measure FROM user WHERE ID = '$_SESSION[id]'";
 
 		//take data from database
-		$data = mysqli_query($conect, $sqlquery);
+		$data = mysqli_query($connect, $sqlquery);
 		
 		//convert 2D array to 1D array
 		$row = mysqli_fetch_assoc($data);
 		
-		//create a uniqe id for measurement
+		//create a unique id for measurement
 		$id = $row['measure'] + 1;
 		if($id < 10){
 			$id = "000$id";
@@ -37,11 +37,11 @@
 		$sqlquery2 = "UPDATE user SET measure = '$id' WHERE ID = '$_SESSION[id]'";
 
 		//method for upload data to database
-		mysqli_query($conect, $sqlquery1);
-		mysqli_query($conect, $sqlquery2);
+		mysqli_query($connect, $sqlquery1);
+		mysqli_query($connect, $sqlquery2);
 		
-		//mehtod to redirect this page to another page
-		mysqli_close($conect);
+		//method to redirect this page to another page
+		mysqli_close($connect);
 		header("location:http://localhost/aminship/profile/view.php");
 		exit;
 	}

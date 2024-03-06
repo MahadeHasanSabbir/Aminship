@@ -8,8 +8,8 @@
 				<meta charset="UTF-8"/>
 				<meta name="viewport" content="width=device-width, initial-scale=1.0"/>
 				<title> Aminship (working with your land) </title>
-				<link rel="stylesheet" type="text/css" href="http://localhost/Aminship/style/css/bootstrap.min.css" />
-				<link rel="stylesheet" type="text/css" href="http://localhost/Aminship/style/css/bootstrap-theme.min.css" />
+				<link rel="stylesheet" type="text/css" href="../style/css/bootstrap.min.css" />
+				<link rel="stylesheet" type="text/css" href="../style/css/bootstrap-theme.min.css" />
 				<style>
 					body {padding-top:60px;background-color:darkseagreen;}
 					#msg {display:none;}
@@ -18,7 +18,7 @@
 			<body>
 				<?php include 'header.php'; ?>
 				<div class="container-fluid">
-					<div class="page-header"> <h4> Find portion from Rectengle shape land </h4> </div>
+					<div class="page-header"> <h4> Find portion from Rectangle shape land </h4> </div>
 					<div id="msg" class="alert alert-info col-sm-12">
 						<span class="glyphicon glyphicon-info-sign"></span>
 						<span id="result"> </span>
@@ -54,15 +54,15 @@
 									<input type="text" name="area" class="form-control" id="a" required=""/>
 								</div>
 							</div> <br/>
-							<button type="submit" value="submit" class="btn btn-md btn-default" > View lenght </button>
+							<button type="submit" value="submit" class="btn btn-md btn-default" > View length </button>
 							<button type="reset" value="reset" class="btn btn-md btn-default"  onclick="document.getElementById('msg').style.display='none';" > Reset </button>
 						</form>
 					</div>
 				</div>
 				<div class="sitefooter"></div>
-				<script src="http://localhost/Aminship/style/js/jquery.min.js"></script>
-				<script src="http://localhost/Aminship/style/js/bootstrap.min.js"></script>
-				<script src="http://localhost/Aminship/style/js/jscript.js"></script>
+				<script src="../style/js/jquery.min.js"></script>
+				<script src="../style/js/bootstrap.min.js"></script>
+				<script src="../style/js/jscript.js"></script>
 				<script>
 					function calculate(){
 						var known1 = document.getElementById('k1').value * 1;

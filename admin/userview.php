@@ -2,13 +2,13 @@
 	session_start();
 	if(isset($_SESSION['aid'])){
 		//create connection with database
-		$conect = mysqli_connect("localhost","root","","aminship");
+		$connect = mysqli_connect("localhost","root","","aminship");
 		$id = $_GET['key'];
 		//sql query to find user information from database
 		$sqlquery = "SELECT * FROM user WHERE ID = '$id'";
 
 		//take data from database
-		$data = mysqli_query($conect, $sqlquery);
+		$data = mysqli_query($connect, $sqlquery);
 
 		//convert 2D array to 1D array
 		$row = mysqli_fetch_assoc($data);
@@ -19,8 +19,8 @@
 				<meta charset="UTF-8"/>
 				<meta name="viewport" content="width=device-width, initial-scale=1.0"/>
 				<title> <?php echo $row["name"];?>'s Profile | Aminship (working with your land) </title>
-				<link rel="stylesheet" type="text/css" href="http://localhost/Aminship/style/css/bootstrap.min.css" />
-				<link rel="stylesheet" type="text/css" href="http://localhost/Aminship/style/css/bootstrap-theme.min.css" />
+				<link rel="stylesheet" type="text/css" href="../style/css/bootstrap.min.css" />
+				<link rel="stylesheet" type="text/css" href="../style/css/bootstrap-theme.min.css" />
 				<style>
 					body {padding-top:30px;background-color:darkseagreen;}
 				</style>
@@ -33,7 +33,7 @@
 						<a href='<?php echo "./profileupdate.php?id=$id";?>' style="color:brown;" class="btn btn-md bg-warning" onclick="return apermit1()"> Edit profile </a>
 						<a href='<?php echo "./userupdate.php?id=$id&pass=1";?>' style="color:darkred;" class="btn btn-md bg-danger" onclick="return apermit1()"> Reset password </a>
 						<a href='<?php echo "./delete.php?id=$id";?>' style="color:darkred;" class="btn btn-md bg-danger" onclick="return apermit2()"> Delete ID </a>
-						<a href='<?php echo "./view.php?id=$id";?>' style="color:mediumblue;" class="btn btn-md bg-info"> Meserment history </a>
+						<a href='<?php echo "./view.php?id=$id";?>' style="color:mediumblue;" class="btn btn-md bg-info"> Measurement history </a>
 					</div>
 					<div class="jumbotron">
 						<?php
@@ -58,13 +58,13 @@
 						?>
 					</div>
 				</div>
-				<script src="http://localhost/Aminship/style/js/jquery.min.js"></script>
-				<script src="http://localhost/Aminship/style/js/bootstrap.min.js"></script>
-				<script src="http://localhost/Aminship/style/js/jscript.js"></script>
+				<script src="../style/js/jquery.min.js"></script>
+				<script src="../style/js/bootstrap.min.js"></script>
+				<script src="../style/js/jscript.js"></script>
 			</body>
 		</html>
 <?php
-	mysqli_close($conect);
+	mysqli_close($connect);
 	}
 	else{
 		$_SESSION['error'] = 'Request failed';

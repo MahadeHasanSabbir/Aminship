@@ -2,7 +2,7 @@
 	session_start();
 	if(isset($_SESSION['id'])){
 		//create connection with database
-		$conect = mysqli_connect("localhost", "root", "", "aminship");
+		$connect = mysqli_connect("localhost", "root", "", "aminship");
 
 		//local variable
 		$name = $_POST['name'];
@@ -14,10 +14,10 @@
 		$sql = "UPDATE user SET name = '$name', password = '$password', mail = '$email', phone = '$number' WHERE user.ID = '$_SESSION[id]';";
 		
 		//method to update data from database
-		mysqli_query($conect, $sql);
+		mysqli_query($connect, $sql);
 		
-		//mehtod to redirect this page to another page
-		mysqli_close($conect);
+		//method to redirect this page to another page
+		mysqli_close($connect);
 		header("location:http://localhost/Aminship/profile/about.php");
 		exit;
 	}

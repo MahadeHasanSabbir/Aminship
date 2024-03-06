@@ -2,7 +2,7 @@
 	session_start();
 	if(isset($_SESSION['aid'])){
 		//create connection with database
-		$conect = mysqli_connect("localhost","root","","aminship");
+		$connect = mysqli_connect("localhost","root","","aminship");
 
 		//local variable
 		$id = $_POST['name'];
@@ -12,7 +12,7 @@
 		$sql = "SELECT * FROM admin WHERE id = '$_SESSION[aid]'";
 
 		// Execute the statement
-		$result = mysqli_query($conect, $sql);
+		$result = mysqli_query($connect, $sql);
 
 		// Get the user data from the database
 		$row = mysqli_fetch_assoc($result);
@@ -21,27 +21,27 @@
 			$sqlquery = "UPDATE admin SET ID = '$id' WHERE admin.ID = '$_SESSION[aid]'";
 			
 			//method for upload data to database
-			mysqli_query($conect, $sqlquery);
+			mysqli_query($connect, $sqlquery);
 			
 			$_SESSION['aid'] = $id;
-			mysqli_close($conect);
-			//mehtod to redirect this page to another page
+			mysqli_close($connect);
+			//method to redirect this page to another page
 			header("location:http://localhost/Aminship/admin/adminprofile.php");
 		}
 		else{
 			$password = password_hash($_POST['password'], PASSWORD_BCRYPT);
-			//keep treak last password change
+			//keep track last password change
 			$date = new DateTime();
 			$passlast = $date -> format('Y-m-j');
 			//sql query for upload data to database
 			$sqlquery = "UPDATE admin SET ID = '$id', password = '$password', passlast = '$passlast' WHERE admin.ID = '$_SESSION[aid]'";
 			
 			//method for upload data to database
-			mysqli_query($conect, $sqlquery);
+			mysqli_query($connect, $sqlquery);
 			
 			$_SESSION['aid'] = $id;
-			mysqli_close($conect);
-			//mehtod to redirect this page to another page
+			mysqli_close($connect);
+			//method to redirect this page to another page
 			header("location:http://localhost/Aminship/admin/adminprofile.php");
 		}
 	}

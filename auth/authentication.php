@@ -26,6 +26,8 @@
 			if(password_verify($password, $row['password'])) {
 				// Login successful
 				$_SESSION['id'] = $id;
+				$query = "UPDATE user SET status = '1' WHERE user.ID = '$_SESSION[id]';";
+				mysqli_query($con, $query);
 				mysqli_close($con);
 				header('location: http://localhost/Aminship/profile/');
 				exit;

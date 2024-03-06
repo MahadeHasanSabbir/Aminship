@@ -7,35 +7,32 @@
 						<span class="icon-bar"></span>
 						<span class="icon-bar"></span>
 					</button>
-					<a class="navbar-brand" href="http://localhost/Aminship">Aminship</a>
+					<a class="navbar-brand" href="../">Aminship</a>
 				</div>
 				<div id="navbar" class="navbar-collapse collapse">
 					<ul class="nav navbar-nav">
 						<li>
-							<a href="http://localhost/Aminship"> Home </a></li>
+							<a href="../"> Home </a></li>
 						<li>
-							<a href="http://localhost/Aminship/about.php"> About </a></li>
+							<a href="../about.php"> About </a></li>
 						<li class="dropdown">
 							<a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">
 								Area <span class="caret"></span>
 							</a>
 								<ul class="dropdown-menu">
 									<li onclick="giveinfo()">
-										<a href="http://localhost/Aminship/tarea.php"> for triangle shape land</a>
+										<a href="../tarea.php"> for triangle shape land</a>
 									</li>
 									<li onclick="giveinfo()">
-										<a href="http://localhost/Aminship/area.php"> for rectengle shape land</a>
+										<a href="../area.php"> for rectangle shape land</a>
 									</li>
 									<li onclick="giveinfo()">
-										<a href="http://localhost/Aminship/sarea.php"> for circle shape land</a>
+										<a href="../sarea.php"> for circle shape land</a>
 									</li>
 								</ul>
 						</li>
 						<li onclick="giveinfo()">
-							<a href="http://localhost/Aminship/side.php"> Side </a>
-						</li>
-						<li onclick="return givealert()">
-							<a href="http://localhost/Aminship/distribution.php"> Distribution </a>
+							<a href="../side.php"> Side </a>
 						</li>
 					</ul>
 					<ul class="nav navbar-nav navbar-right">

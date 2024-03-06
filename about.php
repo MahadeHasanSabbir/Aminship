@@ -31,12 +31,12 @@
 				</div>
 				<blockquote class="bg-warning" style="color:black;">
 					<p>
-						Before starting the masurement we want to clear one thing, we will help you to calculate the area or find out a porsion of a land depanding on your input. We can not help you to mesure the size of a side in your land, it will be done by you.
+						Before starting the measurement we want to clear one thing, we will help you to calculate the area or find out a portion of a land depending on your input. We can not help you to measure the size of a side in your land, it will be done by you.
 					</p>
 					<footer> From Aminship </footer>
 				</blockquote>
 				<p class="text-justify">
-					When it come about land there is no actual size of it. Land could have many axis and those could be straight or curved. For the betterment of mesurement and error less area calculation we need to divide land into some geometric sheap. Land shape could be Triangle, Rectengle or Ellipes. It is not being a problem when you divide your land. Just calculate every divided shape individualy and sum them lastly for final result. We will help you to calculate the individual shape of land. Here is the process,
+					When it come about land there is no actual size of it. Land could have many axis and those could be straight or curved. For the betterment of measurement and error less area calculation we need to divide land into some geometric shape. Land shape could be Triangle, Rectangle or Ellipse. It is not being a problem when you divide your land. Just calculate every divided shape individually and sum them lastly for final result. We will help you to calculate the individual shape of land. Here is the process,
 				</p>
 			</div>
 			<div>
@@ -46,23 +46,23 @@
 							Triangle shape land measurement process
 						</h4>
 						<p class="list-group-item-text text-justify">
-							Simply take the lenght of the sides of your land and put it on the triangle shape area calculator page. When you take the length you must be consious about the perfect value and put feet and inch separately into the respective input box.
+							Simply take the length of the sides of your land and put it on the triangle shape area calculator page. When you take the length you must be conscious about the perfect value and put feet and inch separately into the respective input box.
 						</p>
 					</li>
 					<li class="list-group-item">
 						<h4 class="list-group-item-heading">
-							Rectengle shape land measurement process
+							Rectangle shape land measurement process
 						</h4>
 						<p class="list-group-item-text text-justify">
-							Simply take the lenght of the sides of your land and put it on the rectengle shape area calculator page. When you take the length you must be consious about the perfect value and put feet and inch separately into the respective input box.
+							Simply take the length of the sides of your land and put it on the rectangle shape area calculator page. When you take the length you must be conscious about the perfect value and put feet and inch separately into the respective input box.
 						</p>
 					</li>
 					<li class="list-group-item">
 						<h4 class="list-group-item-heading">
-							Circle or ellipes shape land measurement process
+							Circle or ellipse shape land measurement process
 						</h4>
 						<p class="list-group-item-text text-justify">
-							Simply take the lenght of the long radious and short radious of your land then put it on the circle shape area calculator page. When you take the length you must be consious about the perfect value and put feet and inch separately into the respective input box.
+							Simply take the length of the long radios and short radios of your land then put it on the circle shape area calculator page. When you take the length you must be conscious about the perfect value and put feet and inch separately into the respective input box.
 						</p>
 					</li>
 				</ul>

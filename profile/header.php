@@ -36,14 +36,11 @@
 						<li onclick="giveinfo()" <?php if(basename($_SERVER['PHP_SELF']) == 'side.php'){echo 'class="active"';} ?>>
 							<a href="./side.php"> Side </a>
 						</li>
-						<li onclick="return givealert()" <?php if(basename($_SERVER['PHP_SELF']) == 'distribution.php'){echo 'class="active"';} ?>>
-							<a href="./distribution.php"> Distribution </a>
-						</li>
 					</ul>
 					<ul class="nav navbar-nav navbar-right">
 						<li onclick="return permit()">
-							<a href="http://localhost/Aminship/auth/logout.php">
-								<span class="glyphicon glyphicon-user"></span> Log out
+							<a href="../auth/logout.php">
+								<span class="glyphicon glyphicon-log-out"></span> Log out
 							</a>
 						</li>
 					</ul>

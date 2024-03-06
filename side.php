@@ -21,7 +21,7 @@
 	<body>
 		<?php include 'header.php'; ?>
 		<div class="container-fluid">
-			<div class="page-header"> <h4> Find portion from Rectengle shape land </h4> </div>
+			<div class="page-header"> <h4> Find portion from Rectangle shape land </h4> </div>
 			<div id="msg" class="alert alert-info col-sm-12">
 				<span class="glyphicon glyphicon-info-sign"></span>
 				<span id="result"> </span>

@@ -38,7 +38,7 @@
 		//sql query for upload data to database
 		$sqlquery1 = "INSERT INTO user (ID, name, password, mail, phone, measure) VALUES ('$id', '$name', '$password', '$email', '$number', '000')";
 		$sqlquery2 = "UPDATE admin SET users = '$id3' WHERE ID = '$row[ID]'";
-		$sqlquery3 = "CREATE TABLE `aminship`.`$table` ( 
+		$sqlquery3 = "CREATE TABLE $table ( 
 		`UID` VARCHAR(5) CHARACTER SET utf8 COLLATE utf8_general_ci NOT NULL ,
 		`first` VARCHAR(6) CHARACTER SET utf8 COLLATE utf8_general_ci NOT NULL ,
 		`second` VARCHAR(6) CHARACTER SET utf8 COLLATE utf8_general_ci NOT NULL ,

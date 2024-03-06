@@ -11,8 +11,8 @@
 		<meta charset="UTF-8"/>
 		<meta name="viewport" content="width=device-width, initial-scale=1.0"/>
 		<title> Admin Log in page </title>
-		<link rel="stylesheet" type="text/css" href="http://localhost/Aminship/style/css/bootstrap.min.css">
-		<link rel="stylesheet" type="text/css" href="http://localhost/Aminship/style/css/bootstrap-theme.min.css">
+		<link rel="stylesheet" type="text/css" href="../style/css/bootstrap.min.css">
+		<link rel="stylesheet" type="text/css" href="../style/css/bootstrap-theme.min.css">
 		<style>
 			body {padding-top:60px;}
 			.justify {display:grid;justify-content:center;text-align:center;width:70vw;}
@@ -56,15 +56,15 @@
 					</div>
 					<div class="form-group">
 						<label class="control-label"> Password </label>
-						<input type="password" name="password" class="form-control" id="pass" placeholder="Enter admin password" title="alphanumaric and @,#,$,%,& are allow" required=""/>
+						<input type="password" name="password" class="form-control" id="pass" placeholder="Enter admin password" title="alphanumeric and @,#,$,%,& are allow" required=""/>
 					</div>
 					<button class="btn btn-md btn-default" type="Submit" value="Login"> Login </button>
 					<button class="btn btn-md btn-default" type="Reset" value="Reset"> Reset </button> <br/>
 				</form>
 			</div>
 		</div>
-		<script src="http://localhost/Aminship/style/js/jquery.min.js"></script>
-		<script src="http://localhost/Aminship/style/js/bootstrap.min.js"></script>
+		<script src="../style/js/jquery.min.js"></script>
+		<script src="../style/js/bootstrap.min.js"></script>
 		<script>
 			function valid(){
 				var id = document.getElementById('id').value;

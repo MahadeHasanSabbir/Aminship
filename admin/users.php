@@ -2,14 +2,14 @@
 	session_start();
 	if(isset($_SESSION['aid'])){
 		//create connection with database
-		$conect = mysqli_connect("localhost","root","","aminship");
+		$connect = mysqli_connect("localhost","root","","aminship");
 
 		//sql query to find user information from database
 		$sqlquery = "SELECT * FROM user";
 
 		//take data from database
-		$data = mysqli_query($conect, $sqlquery);
-		$data1 = mysqli_query($conect, $sqlquery);
+		$data = mysqli_query($connect, $sqlquery);
+		$data1 = mysqli_query($connect, $sqlquery);
 ?>
 		<!DOCTYPE html>
 		<html>
@@ -17,8 +17,8 @@
 				<meta charset="UTF-8"/>
 				<meta name="viewport" content="width=device-width, initial-scale=1.0"/>
 				<title> All user information page </title>
-				<link rel="stylesheet" type="text/css" href="http://localhost/Aminship/style/css/bootstrap.min.css" />
-				<link rel="stylesheet" type="text/css" href="http://localhost/Aminship/style/css/bootstrap-theme.min.css" />
+				<link rel="stylesheet" type="text/css" href="../style/css/bootstrap.min.css" />
+				<link rel="stylesheet" type="text/css" href="../style/css/bootstrap-theme.min.css" />
 				<style>
 					body {padding-top:60px;background-color:darkseagreen;}
 				</style>
@@ -38,7 +38,7 @@
 											<th class="col-md-2"> User ID </th>
 											<th> Name </th>
 											<th class="col-md-2"> Number </th>
-											<th class="col-md-2"> No of meserment </th>
+											<th class="col-md-2"> No of measurement </th>
 											<th class="col-md-2"> View profile </th>
 										</tr>
 									</thead>
@@ -64,19 +64,19 @@
 						else{
 							echo "<div class='jumbotron'> <h4 class='text-center'> You don't have any user yet! </h4> <br/>  </div>";
 							$sql = "UPDATE admin SET users = '000' WHERE admin.ID = '$_SESSION[aid]'";
-							mysqli_query($conect, $sql);
+							mysqli_query($connect, $sql);
 							
 						}
 					?>
 				</div>
 				<div id="content_footer"></div>
-				<script src="http://localhost/Aminship/style/js/jquery.min.js"></script>
-				<script src="http://localhost/Aminship/style/js/bootstrap.min.js"></script>
-				<script src="http://localhost/Aminship/style/js/jscript.js"></script>
+				<script src="../style/js/jquery.min.js"></script>
+				<script src="../style/js/bootstrap.min.js"></script>
+				<script src="../style/js/jscript.js"></script>
 			</body>
 		</html>
 <?php
-	mysqli_close($conect);
+	mysqli_close($connect);
 	}
 	else{
 		$_SESSION['error'] = 'Request failed';

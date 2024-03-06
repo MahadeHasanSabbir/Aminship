@@ -1,17 +1,17 @@
 <?php
 	session_start();
 	if(isset($_SESSION['aid'])){
-		$conect = mysqli_connect("localhost", "root", "", "aminship");
+		$connect = mysqli_connect("localhost", "root", "", "aminship");
 	
 		$date = new DateTime();
 		$time = $date -> format('Y-m-j');
 	
 		$sql = "UPDATE admin SET lastlog = '$time' WHERE admin.ID = '$_SESSION[aid]';";
 	
-		mysqli_query($conect, $sql);
+		mysqli_query($connect, $sql);
 
-		$_SESSION['success'] = "Log out successfull";
-		mysqli_close($conect);
+		$_SESSION['success'] = "Log out successful";
+		mysqli_close($connect);
 		header("location:http://localhost/Aminship/admin");
 		exit;
 	}

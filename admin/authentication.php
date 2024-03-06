@@ -12,7 +12,7 @@
 		$password = mysqli_real_escape_string($con, $_POST['password']);
 
 		// Prepare the SQL statement
-		$sql = "SELECT * FROM admin WHERE id = '$id'";
+		$sql = "SELECT id, password FROM admin WHERE id = '$id'";
 
 		// Execute the statement
 		$result = mysqli_query($con, $sql);

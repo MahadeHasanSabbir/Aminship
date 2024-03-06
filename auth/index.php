@@ -5,7 +5,7 @@
 		exit;
 	}
 	else if(isset($_SESSION['aid'])){
-		header("location:http://localhost/Aminship/admin");
+		header("location:http://localhost/Aminship/admin/");
 		exit;
 	}
 	else{

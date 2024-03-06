@@ -2,13 +2,13 @@
 	session_start();
 	if(isset($_SESSION['id'])){
 		//create connection with database
-		$conect = mysqli_connect("localhost","root","","aminship");
+		$connect = mysqli_connect("localhost","root","","aminship");
 
 		//sql query to find user information from database
 		$sqlquery = "SELECT * FROM user WHERE ID = '$_SESSION[id]'";
 
 		//take data from database
-		$data = mysqli_query($conect, $sqlquery);
+		$data = mysqli_query($connect, $sqlquery);
 
 		//convert 2D array to 1D array
 		$row = mysqli_fetch_assoc($data);
@@ -19,8 +19,8 @@
 				<meta charset="UTF-8"/>
 				<meta name="viewport" content="width=device-width, initial-scale=1.0"/>
 				<title> <?php echo $row["name"];?>'s Profile | Aminship (working with your land) </title>
-				<link rel="stylesheet" type="text/css" href="http://localhost/Aminship/style/css/bootstrap.min.css" />
-				<link rel="stylesheet" type="text/css" href="http://localhost/Aminship/style/css/bootstrap-theme.min.css" />
+				<link rel="stylesheet" type="text/css" href="../style/css/bootstrap.min.css" />
+				<link rel="stylesheet" type="text/css" href="../style/css/bootstrap-theme.min.css" />
 				<style>
 					body {padding-top:30px;background-color:darkseagreen;}
 					.mb {margin-bottom:10px;}
@@ -31,9 +31,15 @@
 				<div class="container-fluid">
 					<div class="page-header">
 						<h4 style="display:inline-block;" class="col-sm-9 col-xs-6"> Your information </h4>
-						<a href='./profileupdate.php' style="color:brown;" class="btn btn-md bg-warning" onclick="return permit1()"> Edit profile </a>
-						<a href='./delete.php' style="color:darkred;" class="btn btn-md bg-danger" onclick="return permit2()"> Delete ID </a>
-						<a href='./view.php' style="color:mediumblue;" class="btn btn-md bg-info"> Meserment history </a>
+						<a href='./profileupdate.php' style="color:brown;" class="btn btn-md bg-warning" onclick="return permit1()">
+							Edit profile
+						</a>
+						<a href='./delete.php' style="color:darkred;" class="btn btn-md bg-danger" onclick="return permit2()">
+							Delete ID
+						</a>
+						<a href='./view.php' style="color:mediumblue;" class="btn btn-md bg-info">
+							Measurement history
+						</a>
 					</div>
 					<?php
 					if(password_verify($_SESSION['id'], $row['password'])){
@@ -70,7 +76,7 @@
 								$table = "user"."$_SESSION[id]";
 								$sql = "SELECT COUNT(UID) FROM $table";
 
-								$source = mysqli_query($conect, $sql);
+								$source = mysqli_query($connect, $sql);
 								$number = mysqli_fetch_array($source);
 											
 								echo round($number[0]); 
@@ -97,13 +103,13 @@
 						</div>
 					</div>
 				</div>
-				<script src="http://localhost/Aminship/style/js/jquery.min.js"></script>
-				<script src="http://localhost/Aminship/style/js/bootstrap.min.js"></script>
-				<script src="http://localhost/Aminship/style/js/jscript.js"></script>
+				<script src="../style/js/jquery.min.js"></script>
+				<script src="../style/js/bootstrap.min.js"></script>
+				<script src="../style/js/jscript.js"></script>
 			</body>
 		</html>
 <?php
-	mysqli_close($conect);
+	mysqli_close($connect);
 	}
 	else{
 		header("location:http://localhost/Aminship/auth");

@@ -23,9 +23,9 @@
 		<div class="container-fluid">
 			<ul class="breadcrumb">
 				<li><a href="#">Area</a></li>
-				<li class="active"> Area for rectengle shape land </li>
+				<li class="active"> Area for rectangle shape land </li>
 			</ul>
-			<div class="page-header"> <h4> Area Calculator for Rectengle shape land </h4> </div>
+			<div class="page-header"> <h4> Area Calculator for Rectangle shape land </h4> </div>
 			<div id="msg" class="alert alert-info col-sm-12">
 				<span class="glyphicon glyphicon-info-sign"> </span>
 				<span id="result"> </span>

@@ -27,7 +27,7 @@
 		<?php include 'header.php'; ?>
 		<div class="container-fluid" role="main">
 			<div class="jumbotron" style="margin-bottom:05px;">
-				<p class="text-center"> <strong> Welcome to Aminship (land sarvay) project.</strong> We will help to calculator the area of your land like a Amin.</p>
+				<p class="text-center"> <strong> Welcome to Aminship (land survey) project.</strong> We will help to calculator the area of your land like a Amin.</p>
 			</div>
 			<!--Slideer-->
 			<div id="carousel-generic" class="carousel slide" data-ride="carousel" style="height:60vh;">
@@ -40,7 +40,7 @@
 					<div class="item active" style="height:100%">
 						<img src="./style/gautier-pfeiffer-WPapb9IqRKw-unsplash.jpg" alt="First slide" height="100%" width="100%">
 						<div class="carousel-caption">
-							<h4>Welcome to this land survay project</h4>
+							<h4>Welcome to this land survey project</h4>
 						</div>
 					</div>
 					<div class="item" style="height:100%">
@@ -54,7 +54,7 @@
 					<div class="item" style="height:100%">
 						<img src="./style/valeria-fursa-8CACa5kjqMM-unsplash.jpg" alt="Third slide" height="100%" width="100%">
 						<div class="carousel-caption">
-							<h4><b>Aminship</b><br/>Your calculating assistent in land survay.</h4>
+							<h4><b>Aminship</b><br/>Your calculating assistant in land survey.</h4>
 						</div>
 					</div>
 				</div>
@@ -69,7 +69,7 @@
 			</div>
 			<!--measure discription-->
 			<div class="well" style="margin-top:05px;margin-bottom:05px;">
-				<p class="lead text-justify"> Here is the instruction for measure your land. Before doing this, divide your land into the sape of triangle or ractengle or circle. Otherwise your don't get the perfect result.</p>
+				<p class="lead text-justify"> Here is the instruction for measure your land. Before doing this, divide your land into the sape of triangle or rectangle or circle. Otherwise your don't get the perfect result.</p>
 				<div class="row">
 					<div class="col-sm-4">
 						<div class="panel panel-info">
@@ -77,17 +77,17 @@
 							<h3 class="panel-title text-center">Triangle shape land</h3>
 						</div>
 						<div class="panel-body text-justify row-md-4" >
-							Simply take the lenght of the sides of your land and put it on the triangle shape area calculator page. When you take the length you must be consious about the perfect value and put feet and inch separately into the respective input box.
+							Simply take the length of the sides of your land and put it on the triangle shape area calculator page. When you take the length you must be conscious about the perfect value and put feet and inch separately into the respective input box.
 						</div>
 						</div>
 					</div>
 					<div class="col-sm-4">
 						<div class="panel panel-success">
 						<div class="panel-heading">
-							<h3 class="panel-title text-center">Ractengle shape land</h3>
+							<h3 class="panel-title text-center">Rectangle shape land</h3>
 						</div>
 						<div class="panel-body text-justify">
-							Simply take the lenght of the sides of your land and put it on the rectengle shape area calculator page. When you take the length you must be consious about the perfect value and put feet and inch separately into the respective input box.
+							Simply take the length of the sides of your land and put it on the rectangle shape area calculator page. When you take the length you must be conscious about the perfect value and put feet and inch separately into the respective input box.
 						</div>
 						</div>
 					</div>
@@ -97,7 +97,7 @@
 							<h3 class="panel-title text-center">Circle shape land</h3>
 						</div>
 						<div class="panel-body text-justify">
-							Simply take the lenght of the long radious and short radious of your land then put it on the circle shape area calculator page. When you take the length you must be consious about the perfect value and put feet and inch separately into the respective input box.
+							Simply take the length of the long radios and short radios of your land then put it on the circle shape area calculator page. When you take the length you must be conscious about the perfect value and put feet and inch separately into the respective input box.
 						</div>
 						</div>
 					</div>

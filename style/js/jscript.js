@@ -1,17 +1,17 @@
 function giveinfo(){
 	if (sessionStorage.getItem("visited") === null){
-		alert("Please read all the information about how to do measurement before doing any calculation!\nSorry for the interapt :)");
+		alert("Please read all the information about how to do measurement before doing any calculation!\nSorry for the interrupt :)");
 		sessionStorage.setItem("visited", "true");
 	}
 }
 
 function givealert(){
-	alert("Sorry, this feature is under devolopment!");
+	alert("Sorry, this feature is under development!");
 	return false;
 }
 
-function drow(){
-	alert("Please drow and label your land by yourself in given space of document");
+function draw(){
+	alert("Please draw and label your land by yourself in given space of document");
 }
 
 function permit(){

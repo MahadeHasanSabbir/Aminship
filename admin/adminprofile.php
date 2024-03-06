@@ -2,13 +2,13 @@
 	session_start();
 	if(isset($_SESSION['aid'])){
 		//create connection with database
-		$conect = mysqli_connect("localhost","root","","aminship");
+		$connect = mysqli_connect("localhost","root","","aminship");
 
 		//sql query to find user information from database
 		$sql = "SELECT * FROM admin WHERE admin.id = '$_SESSION[aid]'";
 
 		//take data from database
-		$data = mysqli_query($conect, $sql);
+		$data = mysqli_query($connect, $sql);
 
 		//convert 2D array to 1D array
 		$row = mysqli_fetch_assoc($data);
@@ -19,8 +19,8 @@
 				<meta charset="UTF-8"/>
 				<meta name="viewport" content="width=device-width, initial-scale=1.0"/>
 				<title> Admin panel </title>
-				<link rel="stylesheet" type="text/css" href="http://localhost/Aminship/style/css/bootstrap.min.css">
-				<link rel="stylesheet" type="text/css" href="http://localhost/Aminship/style/css/bootstrap-theme.min.css">
+				<link rel="stylesheet" type="text/css" href="../style/css/bootstrap.min.css">
+				<link rel="stylesheet" type="text/css" href="../style/css/bootstrap-theme.min.css">
 				<style>
 					body {padding-top:60px;background-color:darkseagreen;}
 				</style>
@@ -66,7 +66,7 @@
 										<?php
 											$sql = "SELECT COUNT(ip) FROM visitors WHERE time LIKE '$today%'";
 											
-											$source = mysqli_query($conect, $sql);
+											$source = mysqli_query($connect, $sql);
 											$number = mysqli_fetch_array($source);
 											
 											echo $number[0];
@@ -83,7 +83,7 @@
 										<?php
 											$sql = "SELECT COUNT(DISTINCT ip) FROM visitors WHERE time LIKE '$today%'";
 
-											$source = mysqli_query($conect, $sql);
+											$source = mysqli_query($connect, $sql);
 											$number = mysqli_fetch_array($source);
 											
 											echo $number[0];
@@ -100,7 +100,7 @@
 										<?php
 											$sql = "SELECT COUNT(DISTINCT ip) FROM visitors";
 
-											$source = mysqli_query($conect, $sql);
+											$source = mysqli_query($connect, $sql);
 											$number = mysqli_fetch_array($source);
 											
 											echo $number[0];
@@ -130,7 +130,7 @@
 											$now = $now1.$now2;
 											$sql = "SELECT COUNT(ID) FROM user WHERE lastlog LIKE '$now'";
 
-											$source = mysqli_query($conect, $sql);
+											$source = mysqli_query($connect, $sql);
 											$number = mysqli_fetch_array($source);
 											
 											echo $number[0];
@@ -147,7 +147,7 @@
 										<?php
 											$sql = "SELECT COUNT(ID) FROM user";
 
-											$source = mysqli_query($conect, $sql);
+											$source = mysqli_query($connect, $sql);
 											$number = mysqli_fetch_array($source);
 											
 											echo $number[0];
@@ -169,13 +169,13 @@
 					</div>
 				</div>
 				<div class="footer"></div>
-				<script src="http://localhost/Aminship/style/js/jquery.min.js"></script>
-				<script src="http://localhost/Aminship/style/js/bootstrap.min.js"></script>
-				<script src="http://localhost/Aminship/style/js/jscript.js"></script>
+				<script src="../style/js/jquery.min.js"></script>
+				<script src="../style/js/bootstrap.min.js"></script>
+				<script src="../style/js/jscript.js"></script>
 			</body>
 		</html>
 <?php
-	mysqli_close($conect);
+	mysqli_close($connect);
 	}
 	else{
 		$_SESSION['error'] = 'Request failed';

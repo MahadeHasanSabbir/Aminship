@@ -28,7 +28,7 @@
 			<body>
 				<?php include 'header.php';?>
 				<div class="container">
-					<div class="jumbotron" style="display:inline-block;">
+					<div class="jumbotron" style="display:flow-root;">
                     <?php    
                     if($row){
                         do{
