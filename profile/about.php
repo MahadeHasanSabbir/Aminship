@@ -112,7 +112,7 @@
 	mysqli_close($connect);
 	}
 	else{
-		header("location:http://localhost/Aminship/auth");
+		header("location:../auth");
 		exit;
 	}
 ?>

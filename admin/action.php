@@ -26,7 +26,7 @@
 			$_SESSION['aid'] = $id;
 			mysqli_close($connect);
 			//method to redirect this page to another page
-			header("location:http://localhost/Aminship/admin/adminprofile.php");
+			header("location:./adminprofile.php");
 		}
 		else{
 			$password = password_hash($_POST['password'], PASSWORD_BCRYPT);
@@ -42,12 +42,12 @@
 			$_SESSION['aid'] = $id;
 			mysqli_close($connect);
 			//method to redirect this page to another page
-			header("location:http://localhost/Aminship/admin/adminprofile.php");
+			header("location:./adminprofile.php");
 		}
 	}
 	else{
 		$_SESSION['error'] = 'Request failed';
-		header("location:http://localhost/Aminship/admin/");
+		header("location:./");
 		exit;
 	}
 ?>

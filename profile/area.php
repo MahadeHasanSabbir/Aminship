@@ -82,7 +82,7 @@
 <?php
 	}
 	else{
-		header("location:http://localhost/Aminship/auth");
+		header("location:../auth");
 		exit;
 	}
 ?>

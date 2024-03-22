@@ -1,7 +1,7 @@
 <?php
 	session_start();
 	if(isset($_SESSION['aid']) && !isset($_SESSION['success'])){
-		header('location: http://localhost/Aminship/admin/adminprofile.php');
+		header('location: ./adminprofile.php');
 		exit;
 	}
 ?>

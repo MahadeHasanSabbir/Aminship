@@ -3,7 +3,7 @@
 	if(isset($_SESSION['aid'])){
 		//create connection with database
 		$connect = mysqli_connect("localhost","root","","aminship");
-		$id = $_GET['key'];
+		$id = mysqli_real_escape_string($connect, $_GET['key']);
 		//sql query to find user information from database
 		$sqlquery = "SELECT * FROM user WHERE ID = '$id'";
 
@@ -68,7 +68,7 @@
 	}
 	else{
 		$_SESSION['error'] = 'Request failed';
-		header("location:http://localhost/Aminship/admin/");
+		header("location:./");
 		exit;
 	}
 ?>

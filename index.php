@@ -1,7 +1,7 @@
 <?php
 	session_start();
 	if(isset($_SESSION['id']) or isset($_SESSION['aid'])){
-		header("location:http://localhost/Aminship/auth");
+		header("location:./auth");
 		exit;
 	}
 	//create connection with database
@@ -29,7 +29,7 @@
 			<div class="jumbotron" style="margin-bottom:05px;">
 				<p class="text-center"> <strong> Welcome to Aminship (land survey) project.</strong> We will help to calculator the area of your land like a Amin.</p>
 			</div>
-			<!--Slideer-->
+			<!--Slider-->
 			<div id="carousel-generic" class="carousel slide" data-ride="carousel" style="height:60vh;">
 				<ol class="carousel-indicators">
 					<li data-target="#carousel-generic" data-slide-to="0" class="active"></li>
@@ -67,7 +67,7 @@
 					<span class="sr-only">Next</span>
 				</a>
 			</div>
-			<!--measure discription-->
+			<!--measure description-->
 			<div class="well" style="margin-top:05px;margin-bottom:05px;">
 				<p class="lead text-justify"> Here is the instruction for measure your land. Before doing this, divide your land into the sape of triangle or rectangle or circle. Otherwise your don't get the perfect result.</p>
 				<div class="row">

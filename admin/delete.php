@@ -16,7 +16,7 @@
 			mysqli_query($connect, $sql2);
 
 			//method to redirect this page to another page
-			header("location:http://localhost/Aminship/admin/users.php");
+			header("location:./users.php");
 			exit;
 		}
 		else if(isset($_GET['id']) && isset($_GET['key'])){
@@ -28,7 +28,7 @@
 			//take data from database
 			mysqli_query($connect, $sql);
 
-			header("location:http://localhost/aminship/admin/view.php?id=$_GET[id]");
+			header("location:./view.php?id=$_GET[id]");
 			exit;
 		}
 		else if(isset($_GET['dd']) && $_GET['dd'] == 0){
@@ -38,30 +38,30 @@
 			$dquery = "DELETE FROM visitors WHERE time LIKE '$today%'";
 			mysqli_query($connect, $dquery);
 			
-			header("location:http://localhost/aminship/admin/adminprofile.php");
+			header("location:./adminprofile.php");
 			exit;
 		}
 		else if(isset($_GET['dd']) && $_GET['dd'] == 1){
 			$dquery = "DELETE FROM visitors";
 			mysqli_query($connect, $dquery);
-			header("location:http://localhost/aminship/admin/adminprofile.php");
+			header("location:./adminprofile.php");
 			exit;
 		}
 		else if(isset($_GET['dm'])){
 			$dquery = "DELETE FROM massage WHERE massage.time = '$_GET[dm]'";
 			mysqli_query($connect, $dquery);
 			echo $dquery;
-			header("location:http://localhost/aminship/admin/massage.php");
+			header("location:./massage.php");
 			exit;
 		}
 		else{
-			header("location:http://localhost/aminship/admin/users.php");
+			header("location:./users.php");
 			exit;
 		}
 	}
 	else{
 		$_SESSION['error'] = 'Request failed';
-		header("location:http://localhost/Aminship/admin/");
+		header("location:./");
 		exit;
 	}
 ?>

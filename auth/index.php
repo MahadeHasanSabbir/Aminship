@@ -1,16 +1,16 @@
 <?php
 	session_start();
 	if(isset($_SESSION['id'])){
-		header("location:http://localhost/Aminship/profile/");
+		header("location:../profile");
 		exit;
 	}
 	else if(isset($_SESSION['aid'])){
-		header("location:http://localhost/Aminship/admin/");
+		header("location:../admin");
 		exit;
 	}
 	else{
 		$_SESSION['error'] = 'Request failed';
-		header("location:http://localhost/Aminship/auth/log.php");
+		header("location:./log.php");
 		exit;
 	}
 ?>

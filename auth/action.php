@@ -1,24 +1,24 @@
 <?php
-	if(isset($_POST['name']) && isset($_POST['password'])){
+	if($_SERVER['REQUEST_METHOD'] == 'POST'){
 		//create connection with database
-		$conect = mysqli_connect("localhost","root","","aminship");
+		$connect = mysqli_connect("localhost","root","","aminship");
 		
 		//local variable
-		$name = $_POST['name'];
-		$number = $_POST['number'];
-		$email = $_POST['email'];
-		$password = password_hash($_POST['password'], PASSWORD_BCRYPT);
+		$name = mysqli_real_escape_string($connect, $_POST['name']);
+		$number = mysqli_real_escape_string($connect, $_POST['number']);
+		$email = mysqli_real_escape_string($connect, $_POST['email']);
+		$password = password_hash(mysqli_real_escape_string($connect, $_POST['password']), PASSWORD_BCRYPT);
 		
 		//sql query to find user information from database
 		$sqlquery = "SELECT * FROM admin";
 
 		//take data from database
-		$data = mysqli_query($conect, $sqlquery);
+		$data = mysqli_query($connect, $sqlquery);
 		
 		//convert 2D array to 1D array
 		$row = mysqli_fetch_assoc($data);
 		
-		//create a uniqe id for user
+		//create a unique id for user
 		$date = new DateTime();
 		$id1 = $date -> format('ym');
 		$id2 = $date -> format('j');
@@ -48,17 +48,17 @@
 		PRIMARY KEY (`UID`)) ENGINE = InnoDB;";
 
 		//method for upload data to database
-		mysqli_query($conect, $sqlquery1);
-		mysqli_query($conect, $sqlquery2);
-		mysqli_query($conect, $sqlquery3);
+		mysqli_query($connect, $sqlquery1);
+		mysqli_query($connect, $sqlquery2);
+		mysqli_query($connect, $sqlquery3);
 		
 		//mail to donor
-		mysqli_close($conect);
-		//mehtod to redirect this page to another page
-		header("location:http://localhost/aminship/auth/log.php?id=$id");
+		mysqli_close($connect);
+		//method to redirect this page to another page
+		header("location:./log.php?id=$id");
 	}
 	else{
-		header("location:http://localhost/aminship/auth");
+		header("location:./");
 		exit;
 	}
 ?>

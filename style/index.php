@@ -6,15 +6,15 @@
 	<?php
 		session_start();
 		if(isset($_SESSION['id'])){
-			header("location:http://localhost/Aminship/auth");
+			header("location:../auth");
 			exit;
 		}
 		if(isset($_SESSION['aid'])){
-			header("location:http://localhost/Aminship/admin");
+			header("location:../admin");
 			exit;
 		}
 		else{
-			header("location:http://localhost/Aminship");
+			header("location:../");
 			exit;
 		}
 	?>

@@ -2,13 +2,13 @@
 	session_start();
 	if(isset($_SESSION['aid'])){
 		//create connection with database
-		$conect = mysqli_connect("localhost","root","","aminship");
+		$connect = mysqli_connect("localhost","root","","aminship");
 
 		//sql query to find user information from database
 		$sql = "SELECT * FROM massage";
 
 		//take data from database
-		$data = mysqli_query($conect, $sql);
+		$data = mysqli_query($connect, $sql);
 
 		//convert 2D array to 1D array
 		$row = mysqli_fetch_assoc($data);
@@ -19,8 +19,8 @@
 				<meta charset="UTF-8"/>
 				<meta name="viewport" content="width=device-width, initial-scale=1.0"/>
 				<title> Massages from user </title>
-				<link rel="stylesheet" type="text/css" href="http://localhost/Aminship/style/css/bootstrap.min.css">
-				<link rel="stylesheet" type="text/css" href="http://localhost/Aminship/style/css/bootstrap-theme.min.css">
+				<link rel="stylesheet" type="text/css" href="../style/css/bootstrap.min.css">
+				<link rel="stylesheet" type="text/css" href="../style/css/bootstrap-theme.min.css">
 				<style>
 					body {padding-top:60px;background-color:darkseagreen;}
 				</style>
@@ -60,17 +60,17 @@
 					</div>
 				</div>
 				<div class="footer"></div>
-				<script src="http://localhost/Aminship/style/js/jquery.min.js"></script>
-				<script src="http://localhost/Aminship/style/js/bootstrap.min.js"></script>
-				<script src="http://localhost/Aminship/style/js/jscript.js"></script>
+				<script src="../style/js/jquery.min.js"></script>
+				<script src="../style/js/bootstrap.min.js"></script>
+				<script src="../style/js/jscript.js"></script>
 			</body>
 		</html>
 <?php
-	mysqli_close($conect);
+	mysqli_close($connect);
 	}
 	else{
 		$_SESSION['error'] = 'Request failed';
-		header("location:http://localhost/Aminship/admin/");
+		header("location:./");
 		exit;
 	}
 ?>

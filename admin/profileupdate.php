@@ -5,7 +5,7 @@
 		$connect = mysqli_connect("localhost","root","","aminship");
 
 		//sql query to find user information from database
-		$sql= "SELECT * FROM user WHERE ID = '$_GET[id]'";
+		$sql= "SELECT name, phone, mail FROM user WHERE ID = '$_GET[id]'";
 
 		//take data from database
 		$data = mysqli_query($connect, $sql);
@@ -84,7 +84,7 @@
 	}
 	else{
 		$_SESSION['error'] = 'Request failed';
-		header("location:http://localhost/Aminship/admin/");
+		header("location:./");
 		exit;
 	}
 ?>

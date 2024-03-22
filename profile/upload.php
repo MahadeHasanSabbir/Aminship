@@ -42,11 +42,11 @@
 		
 		//method to redirect this page to another page
 		mysqli_close($connect);
-		header("location:http://localhost/aminship/profile/view.php");
+		header("location:./view.php");
 		exit;
 	}
 	else{
-		header("location:http://localhost/aminship/auth");
+		header("location:../auth");
 		exit;
 	}
 ?>

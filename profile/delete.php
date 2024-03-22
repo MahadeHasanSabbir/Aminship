@@ -18,7 +18,7 @@
 			//method to redirect this page to another page
 			$_SESSION['error'] = "Your ID deleted!";
 			mysqli_close($connect);
-			header("location:http://localhost/Aminship/auth/log.php");
+			header("location:../auth/log.php");
 			exit;
 		}
 		else{
@@ -30,12 +30,12 @@
 			//take data from database
 			mysqli_query($connect, $sql);
 			mysqli_close($connect);
-			header("location:http://localhost/aminship/profile/view.php");
+			header("location:./view.php");
 			exit;
 		}
 	}
 	else{
-		header("location:http://localhost/Aminship/auth");
+		header("location:../auth");
 		exit;
 	}
 ?>

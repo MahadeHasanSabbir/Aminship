@@ -18,11 +18,11 @@
 		
 		//method to redirect this page to another page
 		mysqli_close($connect);
-		header("location:http://localhost/Aminship/profile/about.php");
+		header("location:./about.php");
 		exit;
 	}
 	else{
-		header("location:http://localhost/Aminship/auth");
+		header("location:../auth");
 		exit;
 	}
 ?>

@@ -1,7 +1,7 @@
 <?php
 	session_start();
 	if(isset($_SESSION['aid'])){
-		header("location:http://localhost/Aminship/admin");
+		header("location:../admin");
 		exit;
 	}
 	$connect = mysqli_connect("localhost","root","","aminship");
@@ -62,8 +62,9 @@
 						<label class="col-md-12" style="text-align:center;"> User ID </label>
 						<?php
 						if(isset($_GET['id'])){
+							$id = mysqli_real_escape_string($connect, $_GET['id']);
 							//sql query to find user information from database
-							$sqlquery = "SELECT * FROM user WHERE ID = '$_GET[id]'";
+							$sqlquery = "SELECT * FROM user WHERE ID = '$id'";
 
 							//take data from database
 							$data = mysqli_query($connect, $sqlquery);
@@ -108,14 +109,14 @@
 				var id = document.getElementById('id').value;
 				var pass = document.getElementById('pass').value;
 				
-				var sampleid = /^[0-9]{9}$/i;
-				var samplepass = /^[A-Za-z0-9\@\#\$\%\&]{4,9}$/i;
+				var sampleId = /^[0-9]{9}$/i;
+				var samplePass = /^[A-Za-z0-9\@\#\$\%\&]{4,9}$/i;
 				
-				if(!sampleid.test(id)){
+				if(!sampleId.test(id)){
 					alert("!Invalide ID");
 					return false;
 				}
-				else if(!samplepass.test(pass)){
+				else if(!samplePass.test(pass)){
 					alert("!Invalide Password");
 					return false;
 				}

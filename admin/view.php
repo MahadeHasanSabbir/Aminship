@@ -122,7 +122,7 @@
 	}
 	else{
 		$_SESSION['error'] = 'Request failed';
-		header("location:http://localhost/aminship/admin/");
+		header("location:./");
 		exit;
 	}
 ?>

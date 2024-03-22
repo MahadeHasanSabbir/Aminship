@@ -115,12 +115,12 @@
 		}
 		//method to redirect this page to another page
 		mysqli_close($connect);
-		header("location:http://localhost/Aminship/profile/view.php");
+		header("location:./view.php");
 		exit;
 	}
 	else{
 		$_SESSION['error'] = 'Request failed';
-		header("location:http://localhost/Aminship/auth/log.php");
+		header("location:./");
 		exit;
 	}
 ?>

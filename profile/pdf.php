@@ -101,11 +101,11 @@
 			mysqli_close($connect);
 		}
 		//method to redirect this page to another page
-		header("location:http://localhost/Aminship/profile/view.php");
+		header("location:./view.php");
 		exit;
 	}
 	else{
-		header("location:http://localhost/Aminship/auth");
+		header("location:../auth");
 		exit;
 	}
 ?>
